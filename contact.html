@@ -153,76 +153,19 @@
     </div>
   </div>
 
-  <!-- RIGHT — FORM -->
+  <!-- RIGHT — CALENDLY -->
   <div class="contact-right">
-    <h2>Tell us about your business</h2>
-    <p class="sub">Fill in what you can — we'll take care of the rest on the call.</p>
+    <h2>Pick a time that works for you</h2>
+    <p class="sub">Choose a slot below and you'll get an instant confirmation — no back-and-forth.</p>
 
-    <form id="contactForm">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="fname">First name</label>
-          <input type="text" id="fname" name="fname" placeholder="Jane" required />
-        </div>
-        <div class="form-group">
-          <label for="lname">Last name</label>
-          <input type="text" id="lname" name="lname" placeholder="Smith" required />
-        </div>
-      </div>
+    <!-- Calendly inline widget begin -->
+    <div class="calendly-inline-widget"
+         data-url="https://calendly.com/admin-waypoint-ai"
+         style="min-width:320px;height:680px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <!-- Calendly inline widget end -->
 
-      <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="jane@yourcompany.com" required />
-      </div>
-
-      <div class="form-group">
-        <label for="business">Business name & type</label>
-        <input type="text" id="business" name="business" placeholder="e.g. Smith Electrical — electrical contractor" />
-      </div>
-
-      <div class="form-group">
-        <label for="size">Team size</label>
-        <select id="size" name="size">
-          <option value="" disabled selected>Select…</option>
-          <option>Just me</option>
-          <option>2–5 people</option>
-          <option>6–20 people</option>
-          <option>21–50 people</option>
-          <option>51–100 people</option>
-          <option>100+ people</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="challenge">What's your biggest time drain or operational headache right now?</label>
-        <textarea id="challenge" name="challenge" placeholder="e.g. We spend hours each week writing estimates and following up on quotes. It's all manual and inconsistent."></textarea>
-        <div class="form-hint">Don't overthink it — a few sentences is enough.</div>
-      </div>
-
-      <div class="form-group">
-        <label for="hear">How did you find us?</label>
-        <select id="hear" name="hear">
-          <option value="" disabled selected>Select…</option>
-          <option>Google search</option>
-          <option>Referral from someone I know</option>
-          <option>Guelph Chamber of Commerce</option>
-          <option>LinkedIn</option>
-          <option>A Waypoint AI workshop</option>
-          <option>Other</option>
-        </select>
-      </div>
-
-      <button type="submit" class="btn-submit">Request My Free Consultation →</button>
-      <p class="form-disclaimer">We'll reply within 4 business hours to confirm a time. No spam, ever.</p>
-    </form>
-
-    <div class="form-success" id="formSuccess">
-      <div class="success-icon">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <h3>You're booked in!</h3>
-      <p>Thanks — we'll reach out within 4 business hours to confirm your consultation time. In the meantime, feel free to check out our <a href="case-studies.html" style="color:var(--teal);">case studies</a> to see what's possible.</p>
-    </div>
+    <p class="form-disclaimer">Prefer email? Reach us anytime at <a href="mailto:hello@waypointai.ca" style="color:var(--teal);">hello@waypointai.ca</a>.</p>
   </div>
 </div>
 
@@ -239,15 +182,6 @@
   </nav>
   <p>© 2026 Waypoint AI. All rights reserved.</p>
 </footer>
-
-<script>
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-    // TODO: Replace with real form submission (Formspree, EmailJS, etc.)
-  });
-</script>
 
 </body>
 </html>
