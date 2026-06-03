@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Waypoint AI | AI Insights for Small Business Owners</title>
+  <meta name="description" content="Practical AI insights, guides, and real examples written for small and medium business owners in Guelph and SW Ontario. No jargon." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f2240; --teal: #0e8f7a; --teal-light: #12b09a; --amber: #f59e0b;
+      --offwhite: #f8f9fb; --gray: #64748b; --light-gray: #e8ecf0; --white: #ffffff;
+      --text: #1e293b; --radius: 12px; --shadow: 0 4px 24px rgba(15,34,64,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--light-gray); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+    .nav-logo span { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: white !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+
+    .page-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6b 100%); color: white; padding: 72px 5% 64px; }
+    .page-hero .label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4dd9c8; margin-bottom: 12px; }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+    .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.75); max-width: 560px; line-height: 1.7; }
+
+    section { padding: 72px 5%; }
+    .section-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+
+    /* BLOG LAYOUT */
+    .blog-layout { display: grid; grid-template-columns: 1fr 320px; gap: 64px; align-items: start; }
+
+    /* FEATURED POST */
+    .post-featured { background: var(--navy); border-radius: var(--radius); overflow: hidden; margin-bottom: 40px; text-decoration: none; display: block; transition: transform 0.2s; }
+    .post-featured:hover { transform: translateY(-3px); }
+    .post-featured-body { padding: 40px; color: white; }
+    .post-featured-body .post-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4dd9c8; margin-bottom: 12px; display: block; }
+    .post-featured-body h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; line-height: 1.3; }
+    .post-featured-body p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
+    .post-featured-body .post-meta { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+
+    /* POST GRID */
+    .post-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .post-card { background: var(--offwhite); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 28px; text-decoration: none; display: block; transition: transform 0.2s, border-color 0.2s; }
+    .post-card:hover { transform: translateY(-2px); border-color: var(--teal); }
+    .post-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; display: block; }
+    .post-card h3 { font-size: 1.02rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.4; }
+    .post-card p { font-size: 0.87rem; color: var(--gray); line-height: 1.65; margin-bottom: 16px; }
+    .post-meta { font-size: 0.78rem; color: #94a3b8; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 28px; }
+    .sidebar-box { background: var(--offwhite); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 28px; }
+    .sidebar-box h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+    .sidebar-box p { font-size: 0.85rem; color: var(--gray); line-height: 1.65; margin-bottom: 16px; }
+    .sidebar-cta { display: block; background: var(--teal); color: white; text-align: center; padding: 11px 20px; border-radius: 8px; font-weight: 600; font-size: 0.88rem; text-decoration: none; transition: background 0.2s; }
+    .sidebar-cta:hover { background: var(--teal-light); }
+    .topics-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .topic-chip { background: white; border: 1px solid var(--light-gray); border-radius: 100px; padding: 5px 14px; font-size: 0.8rem; color: var(--gray); font-weight: 500; cursor: default; transition: border-color 0.2s, color 0.2s; }
+    .topic-chip:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* CTA */
+    .cta-strip { background: linear-gradient(135deg, var(--teal), #097a69); color: white; text-align: center; padding: 72px 5%; }
+    .cta-strip h2 { color: white; margin-bottom: 12px; }
+    .cta-strip p { color: rgba(255,255,255,0.82); max-width: 480px; margin: 0 auto 32px; font-size: 1rem; line-height: 1.7; }
+    .btn-white { background: white; color: var(--teal); padding: 14px 36px; border-radius: 9px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-block; transition: transform 0.15s; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .btn-white:hover { transform: translateY(-2px); }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 48px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    footer .footer-brand { font-size: 1rem; font-weight: 700; color: white; }
+    footer .footer-brand span { color: #4dd9c8; }
+    footer p { font-size: 0.83rem; }
+    footer nav { display: flex; gap: 24px; }
+    footer nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.83rem; transition: color 0.2s; }
+    footer nav a:hover { color: white; }
+
+    @media (max-width: 900px) {
+      .blog-layout { grid-template-columns: 1fr; }
+      .post-grid { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.svg" alt="" aria-hidden="true" style="width:36px;height:36px;border-radius:8px;display:block;"/>
+    <span>Waypoint AI</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="label">Blog</div>
+  <h1>AI insights written for<br/>business owners, not tech teams.</h1>
+  <p>Practical guides, real examples, and honest takes on what AI can — and can't — do for your business right now.</p>
+</div>
+
+<section>
+  <div class="blog-layout">
+    <div>
+
+      <!-- FEATURED -->
+      <a href="post-1-five-things.html" class="post-featured">
+        <div class="post-featured-body">
+          <span class="post-tag">Getting Started</span>
+          <h3>The 5 things every small business owner should know about AI before spending a dollar</h3>
+          <p>AI is everywhere in the news, but most of the coverage is aimed at enterprises or tech enthusiasts. Here's what actually matters for a 10-person business in Ontario trying to figure out if AI is worth their time.</p>
+          <div class="post-meta">June 2026 · 7 min read</div>
+        </div>
+      </a>
+
+      <!-- POST GRID -->
+      <div class="post-grid">
+
+        <a href="post-2-guelph-tradesperson.html" class="post-card">
+          <span class="post-tag">Automation</span>
+          <h3>How a Guelph tradesperson cut their quoting time by 75%</h3>
+          <p>A behind-the-scenes look at how a local electrical contractor went from half-day estimates to 45-minute turnarounds — and what that did for their close rate.</p>
+          <div class="post-meta">May 2026 · 5 min read</div>
+        </a>
+
+        <a href="post-3-chatgpt-vs-claude.html" class="post-card">
+          <span class="post-tag">Plain English</span>
+          <h3>ChatGPT vs. Claude: what's the actual difference for your business?</h3>
+          <p>Both are AI. Both can write. But they behave very differently in a business context. Here's a plain-language comparison with no agenda.</p>
+          <div class="post-meta">May 2026 · 6 min read</div>
+        </a>
+
+        <a href="post-4-calculate-roi.html" class="post-card">
+          <span class="post-tag">ROI</span>
+          <h3>How to calculate whether an AI project is worth it before you commit</h3>
+          <p>A simple framework for estimating the time and cost savings of any automation, so you can make an informed decision rather than just hoping it pays off.</p>
+          <div class="post-meta">April 2026 · 4 min read</div>
+        </a>
+
+        <a href="post-5-three-questions.html" class="post-card">
+          <span class="post-tag">Getting Started</span>
+          <h3>The 3 questions to ask before automating anything in your business</h3>
+          <p>Not every process should be automated. Here are the three filters I use with every client before we write a single line of code.</p>
+          <div class="post-meta">April 2026 · 4 min read</div>
+        </a>
+
+        <a href="post-6-data-safety.html" class="post-card">
+          <span class="post-tag">Data & Privacy</span>
+          <h3>Is your business data safe when you use AI tools? Here's what you actually need to know.</h3>
+          <p>Data privacy is the #1 concern I hear from business owners. This is a straightforward, non-legal explanation of the real risks — and how to manage them.</p>
+          <div class="post-meta">March 2026 · 5 min read</div>
+        </a>
+
+        <a href="post-7-five-automations.html" class="post-card">
+          <span class="post-tag">Productivity</span>
+          <h3>5 things you could automate in your business this week</h3>
+          <p>No consultants required (at least not yet). These are quick, low-risk experiments any business owner can try to see AI in action firsthand.</p>
+          <div class="post-meta">March 2026 · 3 min read</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4>Not sure where to start with AI?</h4>
+        <p>Book a free 30-minute call. We'll look at your business together and tell you honestly whether AI makes sense for you right now.</p>
+        <a href="contact.html" class="sidebar-cta">Book a Free Call →</a>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Browse by topic</h4>
+        <div class="topics-list">
+          <span class="topic-chip">Getting Started</span>
+          <span class="topic-chip">Automation</span>
+          <span class="topic-chip">ROI & Pricing</span>
+          <span class="topic-chip">Data & Privacy</span>
+          <span class="topic-chip">Productivity</span>
+          <span class="topic-chip">Plain English</span>
+          <span class="topic-chip">Case Studies</span>
+          <span class="topic-chip">Tools</span>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Free AI Workshops in Guelph</h4>
+        <p>Monthly 90-minute sessions for local business owners. No tech background required. See what AI can do for your specific situation.</p>
+        <a href="contact.html" class="sidebar-cta">See upcoming dates →</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Want AI insights delivered to your inbox?</h2>
+  <p>Practical, jargon-free AI updates for Ontario business owners — once a month, no spam.</p>
+  <a href="contact.html" class="btn-white">Get in touch →</a>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-brand"</span> Consulting/span></div>
+    <p style="margin-top:6px;">Guelph, Ontario · Serving SW Ontario</p>
+  </div>
+  <nav>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <p>© 2026 Waypoint AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

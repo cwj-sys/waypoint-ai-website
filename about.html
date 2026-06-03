@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Waypoint AI | Guelph AI Consulting</title>
+  <meta name="description" content="Waypoint AI is a Guelph-based AI consulting firm helping small and medium businesses across SW Ontario implement practical AI solutions — fast, affordable, and jargon-free." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f2240; --teal: #0e8f7a; --teal-light: #12b09a; --amber: #f59e0b;
+      --offwhite: #f8f9fb; --gray: #64748b; --light-gray: #e8ecf0; --white: #ffffff;
+      --text: #1e293b; --radius: 12px; --shadow: 0 4px 24px rgba(15,34,64,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--light-gray); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+    .nav-logo span { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: white !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+
+    /* HERO */
+    .page-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6b 100%); color: white; padding: 80px 5% 72px; }
+    .page-hero .label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4dd9c8; margin-bottom: 12px; }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; max-width: 680px; }
+    .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.75); max-width: 560px; line-height: 1.7; }
+
+    /* MISSION SECTION */
+    section { padding: 72px 5%; }
+    .section-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .mission-text p { color: var(--gray); line-height: 1.8; font-size: 0.97rem; margin-bottom: 18px; }
+    .mission-text p:last-child { margin-bottom: 0; }
+    .mission-visual { display: flex; flex-direction: column; gap: 16px; }
+    .mission-stat { background: var(--offwhite); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 24px 28px; display: flex; align-items: center; gap: 20px; }
+    .mission-stat-num { font-size: 2rem; font-weight: 800; color: var(--teal); flex-shrink: 0; min-width: 64px; }
+    .mission-stat p { font-size: 0.88rem; color: var(--gray); line-height: 1.55; margin: 0; }
+    .mission-stat strong { color: var(--navy); font-weight: 600; display: block; margin-bottom: 2px; font-size: 0.92rem; }
+
+    /* APPROACH */
+    .approach-section { background: var(--offwhite); }
+    .approach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 48px; }
+    .approach-card { background: white; border-radius: var(--radius); padding: 32px 24px; border: 1px solid var(--light-gray); }
+    .approach-icon { width: 48px; height: 48px; background: rgba(14,143,122,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .approach-icon svg { width: 24px; height: 24px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .approach-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .approach-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
+
+    /* WHY GUELPH */
+    .local-section { }
+    .local-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .local-map { background: linear-gradient(135deg, var(--navy), #1a3a6b); border-radius: var(--radius); padding: 48px 40px; color: white; }
+    .local-map h3 { font-size: 1.1rem; font-weight: 700; color: #4dd9c8; margin-bottom: 20px; }
+    .region-list { display: flex; flex-direction: column; gap: 10px; }
+    .region-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: rgba(255,255,255,0.78); }
+    .region-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+    .local-text p { color: var(--gray); line-height: 1.8; font-size: 0.97rem; margin-bottom: 18px; }
+    .local-text p:last-child { margin-bottom: 0; }
+
+    /* PLATFORM */
+    .platform-section { background: var(--navy); color: white; }
+    .platform-section .section-label { color: #4dd9c8; }
+    .platform-section h2 { color: white; }
+    .platform-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 48px; }
+    .platform-text p { color: rgba(255,255,255,0.72); line-height: 1.8; font-size: 0.97rem; margin-bottom: 18px; }
+    .platform-text p:last-child { margin-bottom: 0; }
+    .platform-cards { display: flex; flex-direction: column; gap: 16px; }
+    .platform-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 20px 24px; }
+    .platform-card h4 { font-size: 0.92rem; font-weight: 700; color: #4dd9c8; margin-bottom: 6px; }
+    .platform-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0; }
+
+    /* CTA STRIP */
+    .cta-strip { background: linear-gradient(135deg, var(--teal), #097a69); color: white; text-align: center; padding: 72px 5%; }
+    .cta-strip h2 { color: white; margin-bottom: 12px; }
+    .cta-strip p { color: rgba(255,255,255,0.82); max-width: 480px; margin: 0 auto 32px; font-size: 1rem; line-height: 1.7; }
+    .btn-white { background: white; color: var(--teal); padding: 14px 36px; border-radius: 9px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-block; transition: transform 0.15s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 48px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    footer .footer-brand { font-size: 1rem; font-weight: 700; color: white; }
+    footer .footer-brand span { color: #4dd9c8; }
+    footer p { font-size: 0.83rem; }
+    footer nav { display: flex; gap: 24px; }
+    footer nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.83rem; transition: color 0.2s; }
+    footer nav a:hover { color: white; }
+
+    @media (max-width: 900px) {
+      .mission-grid, .local-inner, .platform-inner { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.svg" alt="" aria-hidden="true" style="width:36px;height:36px;border-radius:8px;display:block;"/>
+    <span>Waypoint AI</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="label">About Waypoint AI</div>
+  <h1>We exist to close the gap between small businesses and AI that actually works.</h1>
+  <p>Waypoint AI is a Guelph-based consulting firm that helps small and medium businesses across Southwest Ontario implement practical AI — at a price that makes sense, in plain language, with results you can see in weeks.</p>
+</div>
+
+<!-- MISSION -->
+<section>
+  <div class="mission-grid">
+    <div class="mission-text">
+      <div class="section-label">Our Mission</div>
+      <h2>AI should work for every business, not just the ones with IT departments.</h2>
+      <p>The businesses that make your community run — the trades, the professional services firms, the retailers, the service providers — are falling behind on AI, not because they don't care, but because the tools are confusing and the advice available to them is built for enterprises with six-figure technology budgets.</p>
+      <p>Waypoint AI exists to change that. We take the same AI technology that large corporations are deploying at scale and make it practical, affordable, and accessible for businesses with 5 to 100 employees.</p>
+      <p>We don't sell platforms, subscriptions, or vague strategy documents. We build things that work, explain how they work in plain language, and hand them over so your team can use them without thinking about AI at all.</p>
+    </div>
+    <div class="mission-visual">
+      <div class="mission-stat">
+        <div class="mission-stat-num">30</div>
+        <div><strong>Days to first results</strong><p>Most clients see measurable time savings within 30 days of project start — not months.</p></div>
+      </div>
+      <div class="mission-stat">
+        <div class="mission-stat-num">Fixed</div>
+        <div><strong>Pricing, always</strong><p>Every engagement is scoped and priced upfront. No hourly billing, no surprises.</p></div>
+      </div>
+      <div class="mission-stat">
+        <div class="mission-stat-num">100%</div>
+        <div><strong>Client ownership</strong><p>Everything we build belongs entirely to the client. No lock-in, no ongoing fees to us.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="approach-section">
+  <div class="section-label">How We Work</div>
+  <h2>Four principles we hold to<br/>on every engagement.</h2>
+  <div class="approach-grid">
+    <div class="approach-card">
+      <div class="approach-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h3>Plain language, always</h3>
+      <p>We explain what we're building, why it works, and how to use it in terms any team member can understand — not just someone with a computer science degree.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <h3>Fixed, honest pricing</h3>
+      <p>You'll know exactly what you're paying before we start. No hourly billing, no scope creep surprises, no invoice anxiety. A quote is a quote.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h3>Real deliverables, fast</h3>
+      <p>We're not in the business of slide decks and strategy roadmaps. We build things that run in your business. Most clients have something working within 2–4 weeks.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h3>You own everything</h3>
+      <p>Every solution we build belongs entirely to the client. No platform lock-in, no recurring fees to Waypoint AI, no dependency on us to keep the lights on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY LOCAL -->
+<section class="local-section">
+  <div class="local-inner">
+    <div class="local-map">
+      <h3>📍 Where we work</h3>
+      <div class="region-list">
+        <div class="region-item"><div class="region-dot"></div>Guelph (home base)</div>
+        <div class="region-item"><div class="region-dot"></div>Kitchener · Waterloo · Cambridge</div>
+        <div class="region-item"><div class="region-dot"></div>Hamilton · Burlington</div>
+        <div class="region-item"><div class="region-dot"></div>Fergus · Elora · Centre Wellington</div>
+        <div class="region-item"><div class="region-dot"></div>Orangeville · Shelburne</div>
+        <div class="region-item"><div class="region-dot"></div>Remote clients across Ontario</div>
+      </div>
+    </div>
+    <div class="local-text">
+      <div class="section-label">Locally Rooted</div>
+      <h2>We know this region because we're part of it.</h2>
+      <p>Waypoint AI is based in Guelph, Ontario — not a remote consulting operation looking to parachute in and disappear. We're active in the local business community, members of the Guelph Chamber of Commerce, and genuinely invested in the success of businesses in this region.</p>
+      <p>That local presence matters. We understand the industries that drive this economy — manufacturing, trades, professional services, agriculture-adjacent businesses, retail. We can meet in person, attend the same networking events, and get referrals from the same circles as your other trusted advisors.</p>
+      <p>When you work with Waypoint AI, you're working with someone who has a stake in the same community as you — not a vendor who'll be hard to reach when something goes sideways.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM -->
+<section class="platform-section">
+  <div class="section-label">Our Technology Choice</div>
+  <h2>We build exclusively on Claude.</h2>
+  <div class="platform-inner">
+    <div class="platform-text">
+      <p>Most AI consultancies try to be platform-agnostic — a little ChatGPT here, a little Google Gemini there, whatever the client asks for. We've made a different choice: we build exclusively on Claude, Anthropic's AI platform.</p>
+      <p>That's not because other platforms aren't capable. It's because deep expertise in one best-in-class tool produces better results than shallow familiarity with a dozen. Our clients benefit from that depth every time.</p>
+      <p>Claude is consistently ranked among the leading AI models for the type of work that matters most to businesses: writing, reasoning, following complex instructions, and handling long documents reliably. Anthropic, the company behind Claude, was founded with AI safety as a core mission — which has practical implications for business use.</p>
+    </div>
+    <div class="platform-cards">
+      <div class="platform-card">
+        <h4>Claude AI</h4>
+        <p>The core language model powering all our automations — for writing, analysis, document processing, and reasoning tasks.</p>
+      </div>
+      <div class="platform-card">
+        <h4>Claude Cowork</h4>
+        <p>Anthropic's desktop automation platform — used for building workflows that work alongside your team's existing tools and processes.</p>
+      </div>
+      <div class="platform-card">
+        <h4>Claude Code</h4>
+        <p>Used for building custom integrations that connect AI to your existing software — CRM, accounting tools, email, and more.</p>
+      </div>
+      <div class="platform-card">
+        <h4>Anthropic API</h4>
+        <p>Enterprise-grade API access with no training use of your data — the foundation for all client automations we build.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Ready to see what we can do for your business?</h2>
+  <p>A free 30-minute call is the best starting point. No pitch — just an honest look at where AI fits in your operations.</p>
+  <a href="contact.html" class="btn-white">Book a Free Consultation →</a>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-brand"</span> Consulting/span></div>
+    <p style="margin-top:6px;">Guelph, Ontario · Serving SW Ontario</p>
+  </div>
+  <nav>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <p>© 2026 Waypoint AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

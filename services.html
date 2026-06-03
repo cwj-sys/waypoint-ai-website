@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Waypoint AI | AI Consulting for SMBs</title>
+  <meta name="description" content="Fixed-price AI consulting services for small and medium businesses in Guelph and SW Ontario. Audits, automations, custom integrations, and ongoing support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f2240; --teal: #0e8f7a; --teal-light: #12b09a; --amber: #f59e0b;
+      --offwhite: #f8f9fb; --gray: #64748b; --light-gray: #e8ecf0; --white: #ffffff;
+      --text: #1e293b; --radius: 12px; --shadow: 0 4px 24px rgba(15,34,64,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--light-gray); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+    .nav-logo span { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: white !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+
+    .page-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6b 100%); color: white; padding: 72px 5% 64px; }
+    .page-hero .label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4dd9c8; margin-bottom: 12px; }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+    .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.75); max-width: 560px; line-height: 1.7; }
+
+    section { padding: 72px 5%; }
+    .section-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+
+    /* SERVICE DETAIL CARDS */
+    .service-block { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-bottom: 80px; padding-bottom: 80px; border-bottom: 1px solid var(--light-gray); }
+    .service-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .service-block.flip { direction: rtl; }
+    .service-block.flip > * { direction: ltr; }
+    .service-info { }
+    .service-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(14,143,122,0.1); color: var(--teal); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; margin-bottom: 20px; }
+    .service-info h2 { font-size: 1.7rem; margin-bottom: 8px; }
+    .service-price-line { font-size: 1.1rem; font-weight: 700; color: var(--teal); margin-bottom: 20px; }
+    .service-info p { color: var(--gray); line-height: 1.8; font-size: 0.97rem; margin-bottom: 16px; }
+    .service-info p:last-of-type { margin-bottom: 24px; }
+    .service-includes h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 14px; }
+    .include-list { display: flex; flex-direction: column; gap: 10px; }
+    .include-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--gray); line-height: 1.5; }
+    .include-item::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+    .service-visual { background: var(--offwhite); border-radius: var(--radius); border: 1px solid var(--light-gray); padding: 32px; }
+    .service-visual h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+    .example-list { display: flex; flex-direction: column; gap: 12px; }
+    .example { background: white; border-radius: 10px; padding: 16px 18px; border: 1px solid var(--light-gray); }
+    .example .ex-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); margin-bottom: 4px; }
+    .example p { font-size: 0.85rem; color: var(--gray); line-height: 1.55; margin: 0; }
+    .timeline-bar { display: flex; align-items: center; gap: 8px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--light-gray); }
+    .timeline-bar svg { width: 16px; height: 16px; stroke: var(--teal); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .timeline-bar span { font-size: 0.83rem; font-weight: 600; color: var(--navy); }
+
+    /* COMPARISON TABLE */
+    .compare-section { background: var(--offwhite); }
+    table { width: 100%; border-collapse: collapse; margin-top: 40px; background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    thead { background: var(--navy); color: white; }
+    thead th { padding: 16px 20px; font-size: 0.88rem; font-weight: 600; text-align: left; }
+    thead th:first-child { border-radius: 0; }
+    tbody tr { border-bottom: 1px solid var(--light-gray); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 14px 20px; font-size: 0.88rem; color: var(--gray); }
+    tbody td:first-child { font-weight: 600; color: var(--navy); }
+    .check { color: var(--teal); font-weight: 700; }
+    .dash { color: #cbd5e1; }
+
+    /* CTA */
+    .cta-strip { background: linear-gradient(135deg, var(--teal), #097a69); color: white; text-align: center; padding: 72px 5%; }
+    .cta-strip h2 { color: white; margin-bottom: 12px; }
+    .cta-strip p { color: rgba(255,255,255,0.82); max-width: 480px; margin: 0 auto 32px; font-size: 1rem; line-height: 1.7; }
+    .btn-white { background: white; color: var(--teal); padding: 14px 36px; border-radius: 9px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-block; transition: transform 0.15s; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .btn-white:hover { transform: translateY(-2px); }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 48px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    footer .footer-brand { font-size: 1rem; font-weight: 700; color: white; }
+    footer .footer-brand span { color: #4dd9c8; }
+    footer p { font-size: 0.83rem; }
+    footer nav { display: flex; gap: 24px; }
+    footer nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.83rem; transition: color 0.2s; }
+    footer nav a:hover { color: white; }
+
+    @media (max-width: 900px) {
+      .service-block, .service-block.flip { grid-template-columns: 1fr; direction: ltr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.svg" alt="" aria-hidden="true" style="width:36px;height:36px;border-radius:8px;display:block;"/>
+    <span>Waypoint AI</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="label">Services</div>
+  <h1>Fixed-price AI solutions<br/>for real businesses.</h1>
+  <p>Every engagement is scoped, priced, and delivered with no surprises. You'll know exactly what you're getting before we start.</p>
+</div>
+
+<section>
+
+  <!-- SERVICE 1: AUDIT -->
+  <div class="service-block">
+    <div class="service-info">
+      <div class="service-tag">Step 1</div>
+      <h2>AI Readiness Audit</h2>
+      <div class="service-price-line">$500 · Delivered in 1 Week</div>
+      <p>Before spending money on automation, you need to know where the real opportunities are. The AI Readiness Audit gives you a clear, prioritized picture of exactly where AI can save your business time and money — with no obligation to continue.</p>
+      <p>Most clients are surprised by what they find. Common discoveries include hours of weekly admin that can be eliminated, customer communication bottlenecks with simple AI fixes, and document-heavy workflows that take minutes instead of days.</p>
+      <div class="service-includes">
+        <h4>What's included</h4>
+        <div class="include-list">
+          <div class="include-item">2-hour structured discovery session (in person or video)</div>
+          <div class="include-item">Written Opportunity Report with 5–10 specific AI applications ranked by impact</div>
+          <div class="include-item">Estimated time and cost savings for each recommendation</div>
+          <div class="include-item">Suggested next steps with rough pricing — no obligation</div>
+          <div class="include-item">30-minute follow-up call to walk through findings</div>
+        </div>
+      </div>
+    </div>
+    <div class="service-visual">
+      <h4>What we look at</h4>
+      <div class="example-list">
+        <div class="example">
+          <div class="ex-label">Customer Communication</div>
+          <p>Inquiry handling, follow-ups, proposals, quotes, and ongoing client updates.</p>
+        </div>
+        <div class="example">
+          <div class="ex-label">Document Processing</div>
+          <p>Invoices, contracts, reports, forms — anything your team spends time reading or entering.</p>
+        </div>
+        <div class="example">
+          <div class="ex-label">Internal Operations</div>
+          <p>Scheduling, reporting, HR processes, meeting notes, and cross-team communication.</p>
+        </div>
+        <div class="example">
+          <div class="ex-label">Sales & Marketing</div>
+          <p>Content creation, lead follow-up, research, and outreach workflows.</p>
+        </div>
+      </div>
+      <div class="timeline-bar">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Discovery → Report → Debrief call, all within 7 days</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 2: QUICK WIN -->
+  <div class="service-block flip">
+    <div class="service-info">
+      <div class="service-tag">Most Popular</div>
+      <h2>Quick Win Automation</h2>
+      <div class="service-price-line">$1,500 – $3,000 · 2–4 Weeks</div>
+      <p>We identify your single biggest time drain and automate it. One focused problem, one real solution, delivered in 2–4 weeks. Most clients see time savings in the very first week after launch.</p>
+      <p>This is the right starting point for most businesses. You get a working solution fast, your team can evaluate it with real workloads, and you haven't committed to a large engagement before knowing AI is right for you.</p>
+      <div class="service-includes">
+        <h4>What's included</h4>
+        <div class="include-list">
+          <div class="include-item">Workflow scoping and solution design</div>
+          <div class="include-item">Built and tested automation using Claude</div>
+          <div class="include-item">Integration with your existing tools (email, docs, CRM, etc.)</div>
+          <div class="include-item">Team training — everyone who uses it knows how to use it</div>
+          <div class="include-item">2 weeks of post-launch support and tweaks</div>
+          <div class="include-item">Full ownership — no ongoing fees to Waypoint AI</div>
+        </div>
+      </div>
+    </div>
+    <div class="service-visual">
+      <h4>Common Quick Win examples</h4>
+      <div class="example-list">
+        <div class="example">
+          <div class="ex-label">Customer Inquiry Drafting</div>
+          <p>AI drafts responses to new inquiries in your voice, ready for a human to review and send in 30 seconds.</p>
+        </div>
+        <div class="example">
+          <div class="ex-label">Meeting Summary Generator</div>
+          <p>Paste in a transcript or recording — get back action items, decisions, and a shareable summary instantly.</p>
+        </div>
+        <div class="example">
+          <div class="ex-label">Estimate / Proposal Builder</div>
+          <p>Answer 10 questions about a job — AI produces a formatted, professional estimate ready to send.</p>
+        </div>
+        <div class="example">
+          <div class="ex-label">Invoice & Document Extraction</div>
+          <p>Feed in PDFs or scanned docs — AI pulls out the key data and logs it wherever you need it.</p>
+        </div>
+      </div>
+      <div class="timeline-bar">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Scoping → Build → Launch → Support, in 4 weeks or less</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 3: CUSTOM -->
+  <div class="service-block">
+    <div class="service-info">
+      <div class="service-tag">Comprehensive</div>
+      <h2>Custom AI Integration</h2>
+      <div class="service-price-line">$5,000 – $15,000 · 6–12 Weeks</div>
+      <p>For businesses ready to make AI a permanent, embedded part of their operations. We design and build a complete, multi-workflow solution integrated into your existing software ecosystem.</p>
+      <p>Built with Claude Code and Claude Cowork, these integrations go deeper than any off-the-shelf tool. They're tailored to your specific business logic, connected to your real data, and built to grow as your needs evolve.</p>
+      <div class="service-includes">
+        <h4>What's included</h4>
+        <div class="include-list">
+          <div class="include-item">Full discovery and solution architecture design</div>
+          <div class="include-item">Custom-built AI workflows integrated with your existing tools</div>
+          <div class="include-item">CRM, accounting, email, or industry-specific software integration</div>
+          <div class="include-item">Testing, QA, and performance tuning</div>
+          <div class="include-item">Full team training and documentation</div>
+          <div class="include-item">30-day support window post-launch</div>
+          <div class="include-item">Complete code and IP ownership transferred to you</div>
+        </div>
+      </div>
+    </div>
+    <div class="service-visual">
+      <h4>What a full integration looks like</h4>
+      <div class="example-list">
+        <div class="example">
+          <div class="ex-label">End-to-End Sales Workflow</div>
+          <p>Lead capture → AI qualification → proposal generation → follow-up automation → CRM logging, all connected.</p>
+        </div>
+        <div class="example">
+          <div class="ex-label">Operations Command Centre</div>
+          <p>Job scheduling, crew communication, invoice generation, and client updates managed through a single AI-powered interface.</p>
+        </div>
+        <div class="example">
+          <div class="ex-label">HR & Onboarding System</div>
+          <p>Job posting generation, applicant screening summaries, onboarding document creation, and training checklist automation.</p>
+        </div>
+      </div>
+      <div class="timeline-bar">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Full discovery → Architecture → Build → Train → Support</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 4: RETAINER -->
+  <div class="service-block flip">
+    <div class="service-info">
+      <div class="service-tag">Ongoing</div>
+      <h2>AI Operations Retainer</h2>
+      <div class="service-price-line">$1,000 – $2,500 / Month</div>
+      <p>AI isn't a one-time project — it's a capability you build over time. The retainer keeps Waypoint AI as your ongoing partner, continuously improving what you have and adding new automations as your business grows and your needs change.</p>
+      <p>Most retainer clients start after completing a Quick Win or Custom Integration. They've seen what's possible and want to keep the momentum going.</p>
+      <div class="service-includes">
+        <h4>What's included every month</h4>
+        <div class="include-list">
+          <div class="include-item">Monthly strategy call — review what's working and what's next</div>
+          <div class="include-item">Ongoing improvements and refinements to existing automations</div>
+          <div class="include-item">One new automation or enhancement per month</div>
+          <div class="include-item">Priority support — questions answered within 24 hours</div>
+          <div class="include-item">Monthly ROI and usage report</div>
+          <div class="include-item">Cancel anytime — no lock-in contracts</div>
+        </div>
+      </div>
+    </div>
+    <div class="service-visual">
+      <h4>What retainer clients say after 6 months</h4>
+      <div class="example-list">
+        <div class="example">
+          <div class="ex-label">Month 1–2</div>
+          <p>"Our Quick Win is running smoothly and the team has actually adopted it. We're ready for more."</p>
+        </div>
+        <div class="example">
+          <div class="ex-label">Month 3–4</div>
+          <p>"We added two more automations. The time savings are compounding — it's getting hard to imagine going back."</p>
+        </div>
+        <div class="example">
+          <div class="ex-label">Month 5–6</div>
+          <p>"AI is just part of how we work now. We're looking at what else we can tackle next quarter."</p>
+        </div>
+      </div>
+      <div class="timeline-bar">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Cancel anytime · No long-term contracts</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare-section">
+  <div class="section-label">Compare</div>
+  <h2>Which service is right for you?</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Audit</th>
+        <th>Quick Win</th>
+        <th>Custom Integration</th>
+        <th>Retainer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Best if you're just starting out</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td></tr>
+      <tr><td>Something built and working</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+      <tr><td>Integrated with your existing tools</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+      <tr><td>Multi-workflow / end-to-end solution</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+      <tr><td>Ongoing improvements each month</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+      <tr><td>Fixed price, no surprises</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+      <tr><td>You own everything built</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="cta-strip">
+  <h2>Not sure where to start?</h2>
+  <p>Book a free 30-minute call. We'll figure out together which service fits your business right now.</p>
+  <a href="contact.html" class="btn-white">Book a Free Consultation →</a>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-brand"</span> Consulting/span></div>
+    <p style="margin-top:6px;">Guelph, Ontario · Serving SW Ontario</p>
+  </div>
+  <nav>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <p>© 2026 Waypoint AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

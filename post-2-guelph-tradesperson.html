@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How a Guelph Tradesperson Cut Their Quoting Time by 75% — Waypoint AI</title>
+  <meta name="description" content="A behind-the-scenes look at how a local electrical contractor went from half-day estimates to 45-minute turnarounds — and what that did for their close rate." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0f2240; --teal: #0e8f7a; --teal-light: #12b09a; --offwhite: #f8f9fb; --gray: #64748b; --light-gray: #e8ecf0; --white: #ffffff; --text: #1e293b; --radius: 12px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--light-gray); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+    .nav-logo span { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: white !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+    .post-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6b 100%); color: white; padding: 72px 5% 64px; }
+    .post-hero .tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4dd9c8; margin-bottom: 16px; display: inline-block; }
+    .post-hero h1 { font-size: clamp(1.7rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .post-meta { font-size: 0.88rem; color: rgba(255,255,255,0.55); }
+    .post-layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; padding: 64px 5%; max-width: 1200px; margin: 0 auto; align-items: start; }
+    .post-body p { font-size: 1rem; color: var(--gray); line-height: 1.85; margin-bottom: 22px; }
+    .post-body h2 { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin: 40px 0 16px; }
+    .post-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin: 28px 0 12px; }
+    .post-body ul, .post-body ol { padding-left: 24px; margin-bottom: 22px; }
+    .post-body li { font-size: 1rem; color: var(--gray); line-height: 1.75; margin-bottom: 8px; }
+    .post-body strong { color: var(--text); font-weight: 600; }
+    .post-body a { color: var(--teal); text-decoration: underline; }
+    .callout { background: rgba(14,143,122,0.08); border-left: 4px solid var(--teal); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .callout p { margin: 0; font-size: 0.97rem; color: var(--text); font-weight: 500; }
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
+    .stat-box { background: var(--offwhite); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 20px; text-align: center; }
+    .stat-box span { display: block; font-size: 2rem; font-weight: 800; color: var(--teal); }
+    .stat-box p { font-size: 0.82rem; color: var(--gray); margin: 4px 0 0; }
+    .post-divider { border: none; border-top: 1px solid var(--light-gray); margin: 40px 0; }
+    .sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-box { background: var(--offwhite); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 24px; }
+    .sidebar-box h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .sidebar-box p { font-size: 0.85rem; color: var(--gray); line-height: 1.65; margin-bottom: 16px; }
+    .sidebar-cta { display: block; background: var(--teal); color: white; text-align: center; padding: 11px 20px; border-radius: 8px; font-weight: 600; font-size: 0.88rem; text-decoration: none; }
+    .sidebar-cta:hover { background: var(--teal-light); }
+    .related-list { display: flex; flex-direction: column; gap: 12px; }
+    .related-item { text-decoration: none; display: block; }
+    .related-item span { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); display: block; margin-bottom: 2px; }
+    .related-item p { font-size: 0.85rem; color: var(--navy); font-weight: 600; line-height: 1.4; margin: 0; }
+    .related-item:hover p { color: var(--teal); }
+    .post-footer { background: var(--offwhite); border-top: 1px solid var(--light-gray); padding: 48px 5%; }
+    .post-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .back-link { text-decoration: none; color: var(--teal); font-weight: 600; font-size: 0.9rem; }
+    .cta-inline { background: var(--navy); color: white; padding: 14px 28px; border-radius: 9px; font-weight: 700; font-size: 0.92rem; text-decoration: none; }
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    footer .footer-brand { font-size: 1rem; font-weight: 700; color: white; }
+    footer .footer-brand span { color: #4dd9c8; }
+    footer p { font-size: 0.83rem; }
+    footer nav { display: flex; gap: 24px; }
+    footer nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.83rem; }
+    footer nav a:hover { color: white; }
+    @media (max-width: 900px) { .post-layout { grid-template-columns: 1fr; } .sidebar { position: static; } .stat-row { grid-template-columns: 1fr; } footer { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.svg" alt="" aria-hidden="true" style="width:36px;height:36px;border-radius:8px;display:block;"/>
+    <span>Waypoint AI</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<div class="post-hero">
+  <span class="tag">Automation · Case Study</span>
+  <h1>How a Guelph tradesperson cut their quoting time by 75%</h1>
+  <div class="post-meta">May 2026 · 5 min read · By Waypoint AI</div>
+</div>
+
+<div class="post-layout">
+  <article class="post-body">
+    <p>Dave runs a five-person electrical contracting business based in Kitchener. He's been doing it for eleven years and is good at it — the kind of contractor who gets referrals without asking for them. But like most trades business owners, he's been losing half a day every time he needs to produce a quote.</p>
+    <p>He reached out to us after a competitor won a job he'd bid on. Not because his price was wrong — because his quote arrived two days after the other guy's. The client had already committed.</p>
+    <p>"That one cost me about $8,000 in work," he told us. "The other guy wasn't cheaper. He was just faster."</p>
+
+    <h2>The problem with manual estimating</h2>
+    <p>Here's what Dave's quoting process looked like before we worked together:</p>
+    <ol>
+      <li>Drive to the site, take notes on paper or in his phone</li>
+      <li>Back in the truck or at home: review notes, look up current materials pricing</li>
+      <li>Open a Word template, fill in the job details manually</li>
+      <li>Calculate labour hours based on experience</li>
+      <li>Format everything, check the numbers, convert to PDF</li>
+      <li>Email to the client — often the next morning</li>
+    </ol>
+    <p>On a straightforward residential job, this process takes 3–4 hours. On a larger commercial job, half a day or more. And every quote looked slightly different depending on what template he'd opened last, how tired he was, or whether he was rushing.</p>
+    <p>The inconsistency was the second problem. Clients would sometimes push back on line items they didn't understand, or ask questions that a better-formatted quote would have answered upfront. Every one of those conversations took more time.</p>
+
+    <div class="stat-row">
+      <div class="stat-box"><span>3–4 hrs</span><p>Per quote, before</p></div>
+      <div class="stat-box"><span>45 min</span><p>Per quote, after</p></div>
+      <div class="stat-box"><span>75%</span><p>Time reduction</p></div>
+    </div>
+
+    <h2>What we built</h2>
+    <p>The solution had three components, and none of them required Dave to learn anything technical.</p>
+
+    <h3>1. A structured job intake form</h3>
+    <p>We built a simple mobile form Dave fills out on-site. It takes about 10 minutes to complete and covers everything the AI needs: type of work, scope, site conditions, access notes, any unusual materials, and timeline. Dave fills it out in his truck before he drives away — it takes the same time as his old paper notes, but the output is structured data instead of scribbles.</p>
+
+    <h3>2. An AI-powered estimate generator</h3>
+    <p>The form feeds into an AI system built on Claude. When Dave submits the form, the AI generates a complete, professional estimate. It pulls in his standard labour rates and common materials pricing (which we set up once and he updates quarterly), applies his standard markup, and produces a fully formatted document in his company's style.</p>
+    <p>The estimate includes a clear scope of work written in plain language, a line-by-line breakdown, payment terms, and his standard warranty language — all consistently formatted every time.</p>
+
+    <h3>3. A one-click review and send workflow</h3>
+    <p>Dave gets a notification, opens the estimate on his phone or laptop, reviews it (typically takes 5–10 minutes), makes any adjustments, and hits send. The whole process from leaving the site to quote in the client's inbox: 45 minutes.</p>
+
+    <div class="callout">
+      <p>"I sent a quote within an hour of leaving a site last week. The client called me back in 20 minutes and said yes. That's never happened to me before."</p>
+    </div>
+
+    <h2>What changed for the business</h2>
+    <p>The time savings are the headline number — 75% faster per quote. But the downstream effects turned out to matter just as much.</p>
+    <p><strong>Close rate improved.</strong> Being first with a professional-looking quote makes a real difference. Clients read the first quote they receive most carefully. Subsequent quotes are compared against it. Being that first quote is a meaningful competitive advantage Dave didn't have before.</p>
+    <p><strong>Fewer follow-up questions.</strong> Because the scope of work section is now written clearly and consistently — not dashed off in five minutes at 10pm — clients understand what they're buying. The number of "what does this include?" calls dropped significantly in the first month.</p>
+    <p><strong>More quotes submitted.</strong> Dave told us he used to avoid quoting some jobs because the time cost wasn't worth it for smaller projects. Now he quotes almost everything. A $2,000 job that used to cost half a day to quote is now worth chasing.</p>
+
+    <h2>The cost and timeline</h2>
+    <p>The total project cost was $1,800. We scoped, built, and handed it over in two weeks. Dave spent about three hours with us across the entire project: one discovery call, one walkthrough of the form, and one handoff session where we trained him and his office admin.</p>
+    <p>He made back the cost in saved time within the first month. The quote that landed within an hour of leaving the site — the one that converted in 20 minutes — was worth $6,500.</p>
+
+    <hr class="post-divider" />
+
+    <h2>Is this right for your trades business?</h2>
+    <p>This type of automation works well for any trades business that produces regular quotes or estimates: electricians, plumbers, HVAC contractors, roofers, general contractors, landscapers, painters. The specifics of your intake form and pricing logic will differ, but the core workflow is the same.</p>
+    <p>If you're spending more than an hour per quote, and you produce more than a handful of quotes per week, this is almost certainly worth looking at. Book a free call and we'll tell you honestly whether it makes sense for your situation.</p>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h4>Run a trades business?</h4>
+      <p>If you're spending hours on quotes, estimates, or job paperwork, there's a good chance we can cut that significantly. Book a free call to find out.</p>
+      <a href="contact.html" class="sidebar-cta">Book a Free Call →</a>
+    </div>
+    <div class="sidebar-box">
+      <h4>Related reading</h4>
+      <div class="related-list">
+        <a href="case-studies.html" class="related-item">
+          <span>Case Studies</span>
+          <p>See all client results →</p>
+        </a>
+        <a href="post-4-calculate-roi.html" class="related-item">
+          <span>ROI</span>
+          <p>How to calculate whether an AI project is worth it</p>
+        </a>
+        <a href="post-1-five-things.html" class="related-item">
+          <span>Getting Started</span>
+          <p>5 things to know before spending a dollar on AI</p>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="post-footer">
+  <div class="post-footer-inner">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+    <a href="contact.html" class="cta-inline">Book a Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div><div class="footer-brand"</span> Consulting/span></div><p style="margin-top:6px;">Guelph, Ontario · Serving SW Ontario</p></div>
+  <nav><a href="services.html">Services</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
+  <p>© 2026 Waypoint AI. All rights reserved.</p>
+</footer>
+</body>
+</html>

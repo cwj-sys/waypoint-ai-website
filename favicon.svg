@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img">
+  <title>Waypoint AI favicon</title>
+
+  <!-- Rounded square background -->
+  <rect width="32" height="32" rx="7" fill="#0f2240"/>
+
+  <!-- Scaled icon mark -->
+  <g transform="translate(16, 16)">
+    <circle cx="0" cy="0" r="13" fill="#0e8f7a"/>
+    <circle cx="0" cy="0" r="8" fill="#0f2240"/>
+    <!-- W -->
+    <polyline points="-3.5,-2.5 -2,4 0,0.5 2,4 3.5,-2.5"
+              fill="none" stroke="#ffffff" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Tick marks -->
+    <line x1="0" y1="-14.5" x2="0" y2="-12" stroke="#4dd9c8" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="14.5" y1="0" x2="12" y2="0" stroke="#4dd9c8" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="0" y1="14.5" x2="0" y2="12" stroke="#4dd9c8" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-14.5" y1="0" x2="-12" y2="0" stroke="#4dd9c8" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+</svg>

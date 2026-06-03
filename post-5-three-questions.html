@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 3 Questions to Ask Before Automating Anything in Your Business — Waypoint AI</title>
+  <meta name="description" content="Not every process should be automated. Here are the three filters used before writing a single line of code for any client." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0f2240; --teal: #0e8f7a; --teal-light: #12b09a; --offwhite: #f8f9fb; --gray: #64748b; --light-gray: #e8ecf0; --white: #ffffff; --text: #1e293b; --radius: 12px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--light-gray); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+    .nav-logo span { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.92rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: white !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; }
+    .post-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6b 100%); color: white; padding: 72px 5% 64px; }
+    .post-hero .tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4dd9c8; margin-bottom: 16px; display: inline-block; }
+    .post-hero h1 { font-size: clamp(1.7rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .post-meta { font-size: 0.88rem; color: rgba(255,255,255,0.55); }
+    .post-layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; padding: 64px 5%; max-width: 1200px; margin: 0 auto; align-items: start; }
+    .post-body p { font-size: 1rem; color: var(--gray); line-height: 1.85; margin-bottom: 22px; }
+    .post-body h2 { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin: 40px 0 16px; }
+    .post-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin: 28px 0 12px; }
+    .post-body ul, .post-body ol { padding-left: 24px; margin-bottom: 22px; }
+    .post-body li { font-size: 1rem; color: var(--gray); line-height: 1.75; margin-bottom: 8px; }
+    .post-body strong { color: var(--text); font-weight: 600; }
+    .post-body a { color: var(--teal); text-decoration: underline; }
+    .callout { background: rgba(14,143,122,0.08); border-left: 4px solid var(--teal); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .callout p { margin: 0; font-size: 0.97rem; color: var(--text); font-weight: 500; }
+    .question-card { background: var(--offwhite); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 28px 32px; margin: 12px 0; }
+    .question-num { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+    .question-card h3 { font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+    .question-card p { font-size: 0.95rem; color: var(--gray); line-height: 1.75; margin: 0; }
+    .post-divider { border: none; border-top: 1px solid var(--light-gray); margin: 40px 0; }
+    .sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-box { background: var(--offwhite); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 24px; }
+    .sidebar-box h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .sidebar-box p { font-size: 0.85rem; color: var(--gray); line-height: 1.65; margin-bottom: 16px; }
+    .sidebar-cta { display: block; background: var(--teal); color: white; text-align: center; padding: 11px 20px; border-radius: 8px; font-weight: 600; font-size: 0.88rem; text-decoration: none; }
+    .related-list { display: flex; flex-direction: column; gap: 12px; }
+    .related-item { text-decoration: none; display: block; }
+    .related-item span { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); display: block; margin-bottom: 2px; }
+    .related-item p { font-size: 0.85rem; color: var(--navy); font-weight: 600; line-height: 1.4; margin: 0; }
+    .related-item:hover p { color: var(--teal); }
+    .post-footer { background: var(--offwhite); border-top: 1px solid var(--light-gray); padding: 48px 5%; }
+    .post-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .back-link { text-decoration: none; color: var(--teal); font-weight: 600; font-size: 0.9rem; }
+    .cta-inline { background: var(--navy); color: white; padding: 14px 28px; border-radius: 9px; font-weight: 700; font-size: 0.92rem; text-decoration: none; }
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    footer .footer-brand { font-size: 1rem; font-weight: 700; color: white; }
+    footer .footer-brand span { color: #4dd9c8; }
+    footer p { font-size: 0.83rem; }
+    footer nav { display: flex; gap: 24px; }
+    footer nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.83rem; }
+    footer nav a:hover { color: white; }
+    @media (max-width: 900px) { .post-layout { grid-template-columns: 1fr; } .sidebar { position: static; } footer { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.svg" alt="" aria-hidden="true" style="width:36px;height:36px;border-radius:8px;display:block;"/>
+    <span>Waypoint AI</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<div class="post-hero">
+  <span class="tag">Getting Started</span>
+  <h1>The 3 questions to ask before automating anything in your business</h1>
+  <div class="post-meta">April 2026 · 4 min read · By Waypoint AI</div>
+</div>
+
+<div class="post-layout">
+  <article class="post-body">
+    <p>When businesses first start thinking about AI, they often make one of two mistakes: they try to automate everything at once, or they spend months analysing options without actually automating anything. Both waste time and money.</p>
+    <p>Over time working with small businesses, we've developed three questions that filter out bad automation candidates quickly and surface the good ones. They take about five minutes to apply to any process, and they've saved clients from going down a lot of expensive dead ends.</p>
+
+    <div class="question-card">
+      <div class="question-num">Question 1</div>
+      <h3>Is this process consistent enough to describe in writing?</h3>
+      <p>If you can't describe exactly how a task is done — the inputs, the steps, the outputs — in a clear, written procedure, AI can't reliably automate it. This isn't a technology limitation; it's a process maturity issue. Automation encodes a process into a system, so if the process is unclear or changes based on who's doing it, the automation will be unreliable. The test: ask two people on your team to describe how the task is done and see if their answers match. If they don't, fix the process first.</p>
+    </div>
+
+    <div class="question-card">
+      <div class="question-num">Question 2</div>
+      <h3>Does this task happen often enough to justify building something?</h3>
+      <p>A task that happens once a month probably doesn't justify a custom automation, even if it's annoying when it comes up. A task that happens 20 times a day absolutely does. The rule of thumb: if you can't save at least 2 hours per week with the automation, the project is unlikely to pay back within a year at typical project costs. Calculate your current weekly time cost (time × frequency × hourly cost) before committing. The math should be obviously positive — if you're squinting at the numbers hoping it works, look for a better candidate.</p>
+    </div>
+
+    <div class="question-card">
+      <div class="question-num">Question 3</div>
+      <h3>What's the cost of a mistake?</h3>
+      <p>Every automation will occasionally produce a wrong output. That's not a reason to avoid automation — it's a reason to match the level of human oversight to the stakes. Drafting a first-pass customer email that a human reviews before sending: low cost of mistake. Automatically sending customer communications without review: higher cost of mistake. Automatically processing a payment: probably not worth the risk. Map your candidate processes on a scale from "a mistake is a minor inconvenience" to "a mistake could damage a client relationship or create legal exposure." High-stakes processes need human review steps built in — which is fine, but factor it into your time savings calculation.</p>
+    </div>
+
+    <h2>How to use these questions together</h2>
+    <p>Run any automation candidate through all three. A good candidate will be:</p>
+    <ul>
+      <li>Consistent and describable — the process is the same every time</li>
+      <li>High-volume enough — the math on time savings is clearly positive</li>
+      <li>Low-to-medium stakes — mistakes are recoverable, or a review step can be built in</li>
+    </ul>
+    <p>If a process fails question 1: document and standardise the process first, then revisit.<br/>If it fails question 2: keep it on a backlog but don't prioritise it yet.<br/>If it fails question 3: build in a human review step or leave it alone for now.</p>
+
+    <div class="callout">
+      <p>The best first automation is usually not the most exciting one — it's the most boring, repetitive, high-volume task in the business. Boring = consistent = reliable automation.</p>
+    </div>
+
+    <h2>What this looks like in practice</h2>
+    <p>A property management company we worked with had a list of ten things they wanted to automate. We ran all ten through these three questions. Six failed immediately — either too inconsistent, too infrequent, or too high-stakes without a clear review step. Two were good candidates with some process cleanup first. Two were strong candidates to build right away.</p>
+    <p>We built the two strong candidates. Both paid back within three months. The team then cleaned up one of the "process cleanup first" candidates and we automated that six months later. Starting focused meant faster results and less wasted money.</p>
+
+    <hr class="post-divider" />
+    <p>If you want to run your own business processes through this framework with some help, our AI Readiness Audit is designed exactly for this: we systematically work through your workflows together and identify which ones are genuinely worth automating, in which order, and at what cost. It's $500 and takes one week.</p>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h4>Not sure what to automate first?</h4>
+      <p>We do this analysis for free on our consultation calls. Book 30 minutes and we'll identify your best candidates together.</p>
+      <a href="contact.html" class="sidebar-cta">Book a Free Call →</a>
+    </div>
+    <div class="sidebar-box">
+      <h4>Related reading</h4>
+      <div class="related-list">
+        <a href="post-4-calculate-roi.html" class="related-item">
+          <span>ROI</span>
+          <p>How to calculate whether an AI project is worth it</p>
+        </a>
+        <a href="post-7-five-automations.html" class="related-item">
+          <span>Productivity</span>
+          <p>5 things you could automate in your business this week</p>
+        </a>
+        <a href="post-1-five-things.html" class="related-item">
+          <span>Getting Started</span>
+          <p>5 things to know before spending a dollar on AI</p>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="post-footer">
+  <div class="post-footer-inner">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+    <a href="contact.html" class="cta-inline">Book a Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div><div class="footer-brand"</span> Consulting/span></div><p style="margin-top:6px;">Guelph, Ontario · Serving SW Ontario</p></div>
+  <nav><a href="services.html">Services</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
+  <p>© 2026 Waypoint AI. All rights reserved.</p>
+</footer>
+</body>
+</html>

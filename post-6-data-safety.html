@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Is Your Business Data Safe When You Use AI Tools? — Waypoint AI</title>
+  <meta name="description" content="Data privacy is the #1 concern from business owners. A straightforward, non-legal explanation of the real risks — and how to manage them." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0f2240; --teal: #0e8f7a; --teal-light: #12b09a; --offwhite: #f8f9fb; --gray: #64748b; --light-gray: #e8ecf0; --white: #ffffff; --text: #1e293b; --radius: 12px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--light-gray); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+    .nav-logo span { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.92rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: white !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; }
+    .post-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6b 100%); color: white; padding: 72px 5% 64px; }
+    .post-hero .tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4dd9c8; margin-bottom: 16px; display: inline-block; }
+    .post-hero h1 { font-size: clamp(1.7rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .post-meta { font-size: 0.88rem; color: rgba(255,255,255,0.55); }
+    .post-layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; padding: 64px 5%; max-width: 1200px; margin: 0 auto; align-items: start; }
+    .post-body p { font-size: 1rem; color: var(--gray); line-height: 1.85; margin-bottom: 22px; }
+    .post-body h2 { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin: 40px 0 16px; }
+    .post-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin: 28px 0 12px; }
+    .post-body ul, .post-body ol { padding-left: 24px; margin-bottom: 22px; }
+    .post-body li { font-size: 1rem; color: var(--gray); line-height: 1.75; margin-bottom: 8px; }
+    .post-body strong { color: var(--text); font-weight: 600; }
+    .post-body a { color: var(--teal); text-decoration: underline; }
+    .callout { background: rgba(14,143,122,0.08); border-left: 4px solid var(--teal); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .callout p { margin: 0; font-size: 0.97rem; color: var(--text); font-weight: 500; }
+    .warning-callout { background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .warning-callout p { margin: 0; font-size: 0.97rem; color: var(--text); }
+    .post-divider { border: none; border-top: 1px solid var(--light-gray); margin: 40px 0; }
+    .sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-box { background: var(--offwhite); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 24px; }
+    .sidebar-box h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .sidebar-box p { font-size: 0.85rem; color: var(--gray); line-height: 1.65; margin-bottom: 16px; }
+    .sidebar-cta { display: block; background: var(--teal); color: white; text-align: center; padding: 11px 20px; border-radius: 8px; font-weight: 600; font-size: 0.88rem; text-decoration: none; }
+    .related-list { display: flex; flex-direction: column; gap: 12px; }
+    .related-item { text-decoration: none; display: block; }
+    .related-item span { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); display: block; margin-bottom: 2px; }
+    .related-item p { font-size: 0.85rem; color: var(--navy); font-weight: 600; line-height: 1.4; margin: 0; }
+    .related-item:hover p { color: var(--teal); }
+    .post-footer { background: var(--offwhite); border-top: 1px solid var(--light-gray); padding: 48px 5%; }
+    .post-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .back-link { text-decoration: none; color: var(--teal); font-weight: 600; font-size: 0.9rem; }
+    .cta-inline { background: var(--navy); color: white; padding: 14px 28px; border-radius: 9px; font-weight: 700; font-size: 0.92rem; text-decoration: none; }
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    footer .footer-brand { font-size: 1rem; font-weight: 700; color: white; }
+    footer .footer-brand span { color: #4dd9c8; }
+    footer p { font-size: 0.83rem; }
+    footer nav { display: flex; gap: 24px; }
+    footer nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.83rem; }
+    footer nav a:hover { color: white; }
+    @media (max-width: 900px) { .post-layout { grid-template-columns: 1fr; } .sidebar { position: static; } footer { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.svg" alt="" aria-hidden="true" style="width:36px;height:36px;border-radius:8px;display:block;"/>
+    <span>Waypoint AI</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<div class="post-hero">
+  <span class="tag">Data & Privacy</span>
+  <h1>Is your business data safe when you use AI tools? Here's what you actually need to know.</h1>
+  <div class="post-meta">March 2026 · 5 min read · By Waypoint AI</div>
+</div>
+
+<div class="post-layout">
+  <article class="post-body">
+    <p>"What happens to my data?" is the first question we get from almost every business owner we talk to. And it's the right question to ask — you should understand what you're putting into any AI system before you use it for business purposes.</p>
+    <p>This post gives you a plain-language explanation of how AI data handling actually works, what the real risks are, and how to protect yourself. It's not legal advice — if you have specific compliance concerns, talk to a lawyer — but it should give you a clear enough picture to make informed decisions.</p>
+
+    <h2>The key distinction: consumer tools vs. API/enterprise tools</h2>
+    <p>This is the most important thing to understand, and almost nobody explains it clearly. There's a fundamental difference in how your data is handled depending on <em>which version</em> of an AI tool you're using.</p>
+
+    <h3>Consumer tools (free / low-cost web apps)</h3>
+    <p>When you use ChatGPT.com, Claude.ai (free tier), or similar consumer products, your conversations may be used to improve the AI. The exact policies vary and change over time, but the default for most consumer tools is that your inputs can be reviewed by the company and potentially used for training. Many tools let you opt out — but you have to know to look for that setting.</p>
+    <p>This doesn't mean your data is being broadcast publicly — it means Anthropic or OpenAI employees might review conversations to improve the model. For most general tasks, this is probably fine. For confidential client information, proprietary business data, or anything sensitive, it's worth being more careful.</p>
+
+    <h3>API and enterprise tiers</h3>
+    <p>When businesses build automations using the Claude or OpenAI APIs — which is how Waypoint AI builds solutions for clients — the data handling is different and substantially more protective. Both Anthropic and OpenAI have enterprise agreements and API terms that explicitly state your data is <strong>not</strong> used for training their models. Your inputs and outputs are processed and discarded. There's no human review of your business data.</p>
+    <p>This is the tier we use for all client work. When we build an automation for your business, your customer data, your documents, and your workflows are processed through the API with no training use, and we can sign data processing agreements to formalise this if needed.</p>
+
+    <div class="callout">
+      <p>The simple rule: free consumer apps = data may be used for training. API / enterprise tier = data is not used for training. Know which one you're using.</p>
+    </div>
+
+    <h2>What about PIPEDA and Canadian privacy law?</h2>
+    <p>Canada's federal privacy law (PIPEDA) requires that businesses collecting personal information about Canadians do so with consent and for a clear purpose. If you're using AI to process personal information about your customers — names, contact info, transaction history — PIPEDA applies to how you handle that data, not just how the AI vendor handles it.</p>
+    <p>Practically, this means: if you're feeding customer personal information into an AI system, you should be satisfied that the AI vendor has appropriate data protection practices, and that this use is consistent with your privacy policy. For enterprise API use with major AI providers, this bar is generally met. For consumer tools, it's less clear-cut.</p>
+    <p>This isn't meant to scare you — most small businesses using AI for internal workflows (drafting their own communications, processing their own invoices) aren't running into material PIPEDA issues. But if you're processing customer personal data at scale, it's worth a conversation with someone who knows privacy law.</p>
+
+    <h2>Practical rules of thumb</h2>
+    <p>Here's how we advise clients to think about what goes into AI tools:</p>
+
+    <h3>Generally fine for consumer AI tools:</h3>
+    <ul>
+      <li>Drafting your own marketing copy, emails, or internal documents</li>
+      <li>Asking general business questions or getting advice</li>
+      <li>Summarising publicly available information</li>
+      <li>Generating ideas or brainstorming</li>
+    </ul>
+
+    <h3>Use API/enterprise tier or be cautious:</h3>
+    <ul>
+      <li>Documents containing client names, contact info, or financial data</li>
+      <li>Proprietary business processes, pricing models, or trade secrets</li>
+      <li>Employee personal information</li>
+      <li>Anything subject to professional confidentiality (legal, medical, accounting)</li>
+    </ul>
+
+    <div class="warning-callout">
+      <p><strong>A word of caution for professionals:</strong> If you're a lawyer, accountant, doctor, or other regulated professional, your obligations around client confidentiality may impose additional restrictions on what you can put into AI tools. Check with your professional body if you're unsure.</p>
+    </div>
+
+    <h2>What we do for clients</h2>
+    <p>When we build automations for businesses, we have a standard set of data protection practices:</p>
+    <ul>
+      <li>All AI processing uses the Claude API — no consumer tools, no training use of your data</li>
+      <li>We can sign a Data Processing Agreement (DPA) if you or your clients require it</li>
+      <li>We don't store client data on our own systems beyond what's needed to build and test the solution</li>
+      <li>We'll walk you through Anthropic's privacy and security documentation before any project begins</li>
+    </ul>
+    <p>We're not lawyers and we're not a compliance firm, but we take data handling seriously and we're happy to answer questions about how a specific workflow would handle your data.</p>
+
+    <hr class="post-divider" />
+    <p>If you have specific questions about how AI would handle data in your industry or business context, raise them on your free consultation call. We'd rather address those concerns upfront than have you worry about something that's either not a real issue, or is an issue we should be designing around.</p>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h4>Questions about data privacy for your business?</h4>
+      <p>Raise them on your free consultation. We'll walk through exactly how your data would be handled before any project starts.</p>
+      <a href="contact.html" class="sidebar-cta">Book a Free Call →</a>
+    </div>
+    <div class="sidebar-box">
+      <h4>Related reading</h4>
+      <div class="related-list">
+        <a href="post-3-chatgpt-vs-claude.html" class="related-item">
+          <span>Plain English</span>
+          <p>ChatGPT vs. Claude: what's the difference for your business?</p>
+        </a>
+        <a href="post-1-five-things.html" class="related-item">
+          <span>Getting Started</span>
+          <p>5 things to know before spending a dollar on AI</p>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="post-footer">
+  <div class="post-footer-inner">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+    <a href="contact.html" class="cta-inline">Book a Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div><div class="footer-brand"</span> Consulting/span></div><p style="margin-top:6px;">Guelph, Ontario · Serving SW Ontario</p></div>
+  <nav><a href="services.html">Services</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
+  <p>© 2026 Waypoint AI. All rights reserved.</p>
+</footer>
+</body>
+</html>

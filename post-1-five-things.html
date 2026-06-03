@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Things Every Small Business Owner Should Know About AI Before Spending a Dollar — Waypoint AI</title>
+  <meta name="description" content="AI is everywhere in the news, but most of the coverage is aimed at enterprises. Here's what actually matters for a small business in Ontario trying to figure out if AI is worth their time." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0f2240; --teal: #0e8f7a; --teal-light: #12b09a; --offwhite: #f8f9fb; --gray: #64748b; --light-gray: #e8ecf0; --white: #ffffff; --text: #1e293b; --radius: 12px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--light-gray); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+    .nav-logo span { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: white !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+
+    .post-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6b 100%); color: white; padding: 72px 5% 64px; }
+    .post-hero .tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4dd9c8; margin-bottom: 16px; display: inline-block; }
+    .post-hero h1 { font-size: clamp(1.7rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .post-meta { font-size: 0.88rem; color: rgba(255,255,255,0.55); }
+
+    .post-layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; padding: 64px 5%; max-width: 1200px; margin: 0 auto; align-items: start; }
+    .post-body { }
+    .post-body p { font-size: 1rem; color: var(--gray); line-height: 1.85; margin-bottom: 22px; }
+    .post-body h2 { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin: 40px 0 16px; }
+    .post-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin: 28px 0 12px; }
+    .post-body ul, .post-body ol { padding-left: 24px; margin-bottom: 22px; }
+    .post-body li { font-size: 1rem; color: var(--gray); line-height: 1.75; margin-bottom: 8px; }
+    .post-body strong { color: var(--text); font-weight: 600; }
+    .post-body a { color: var(--teal); text-decoration: underline; }
+    .callout { background: rgba(14,143,122,0.08); border-left: 4px solid var(--teal); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .callout p { margin: 0; font-size: 0.97rem; color: var(--text); font-weight: 500; }
+    .post-divider { border: none; border-top: 1px solid var(--light-gray); margin: 40px 0; }
+
+    .sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-box { background: var(--offwhite); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 24px; }
+    .sidebar-box h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .sidebar-box p { font-size: 0.85rem; color: var(--gray); line-height: 1.65; margin-bottom: 16px; }
+    .sidebar-cta { display: block; background: var(--teal); color: white; text-align: center; padding: 11px 20px; border-radius: 8px; font-weight: 600; font-size: 0.88rem; text-decoration: none; }
+    .sidebar-cta:hover { background: var(--teal-light); }
+    .related-list { display: flex; flex-direction: column; gap: 12px; }
+    .related-item { text-decoration: none; display: block; }
+    .related-item span { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); display: block; margin-bottom: 2px; }
+    .related-item p { font-size: 0.85rem; color: var(--navy); font-weight: 600; line-height: 1.4; margin: 0; }
+    .related-item:hover p { color: var(--teal); }
+
+    .post-footer { background: var(--offwhite); border-top: 1px solid var(--light-gray); padding: 48px 5%; }
+    .post-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .back-link { text-decoration: none; color: var(--teal); font-weight: 600; font-size: 0.9rem; }
+    .cta-inline { background: var(--navy); color: white; padding: 14px 28px; border-radius: 9px; font-weight: 700; font-size: 0.92rem; text-decoration: none; }
+    .cta-inline:hover { background: #1a3a6b; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    footer .footer-brand { font-size: 1rem; font-weight: 700; color: white; }
+    footer .footer-brand span { color: #4dd9c8; }
+    footer p { font-size: 0.83rem; }
+    footer nav { display: flex; gap: 24px; }
+    footer nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.83rem; transition: color 0.2s; }
+    footer nav a:hover { color: white; }
+
+    @media (max-width: 900px) { .post-layout { grid-template-columns: 1fr; } .sidebar { position: static; } footer { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.svg" alt="" aria-hidden="true" style="width:36px;height:36px;border-radius:8px;display:block;"/>
+    <span>Waypoint AI</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<div class="post-hero">
+  <span class="tag">Getting Started</span>
+  <h1>The 5 things every small business owner should know about AI before spending a dollar</h1>
+  <div class="post-meta">June 2026 · 7 min read · By Waypoint AI</div>
+</div>
+
+<div class="post-layout">
+  <article class="post-body">
+    <p>If you've been paying any attention to the news over the past couple of years, you'd be forgiven for thinking AI is either going to save your business or destroy it — depending on which headline you read that morning.</p>
+    <p>The reality, for most small and medium businesses in Ontario, is much less dramatic. AI is a genuinely useful set of tools that can save you real time and real money — but only if you approach it with clear eyes. And right now, a lot of business owners are getting burned by hype, bad advice, or just plain confusion.</p>
+    <p>Before you spend a dollar on any AI tool, consultant, or platform, here are five things you should actually understand.</p>
+
+    <h2>1. "AI" is a category, not a product</h2>
+    <p>When people say "AI," they usually mean one of several very different things: language models (like Claude or ChatGPT) that read and write text, image generators, prediction systems, voice recognition tools, and much more. These are as different from each other as a hammer is from a circular saw — both are "tools," but you wouldn't use them for the same job.</p>
+    <p>The type of AI that's most immediately useful for most small businesses is <strong>language models</strong> — systems that can read, write, summarize, and reason about text. This is where the clearest near-term ROI lives for most SMBs: customer communication, document processing, report writing, research, and internal workflows.</p>
+    <p>So when someone pitches you on "AI for your business," the first question to ask is: <em>what specific type of AI, doing what specific task?</em> Vague answers are a red flag.</p>
+
+    <div class="callout">
+      <p>The most useful AI for most small businesses right now: language models that handle text-based tasks. Everything else is secondary until you've won there first.</p>
+    </div>
+
+    <h2>2. AI doesn't replace employees — it replaces tasks</h2>
+    <p>This is probably the most important misconception to clear up, and it cuts both ways.</p>
+    <p>On one hand: no, AI is not going to eliminate your entire team. For the vast majority of small businesses, AI handles specific, well-defined tasks within a job — not the whole job. A customer service rep who uses AI to draft responses still makes judgment calls, manages relationships, and handles anything unusual. They just spend a lot less time on the repetitive writing part.</p>
+    <p>On the other hand: tasks that are entirely repetitive and rule-based <em>can</em> be fully automated, which does affect headcount decisions. If your entire data entry role is transcribing invoices into a spreadsheet, that role may look different in two years.</p>
+    <p>The practical upshot for most business owners: think in terms of <strong>tasks, not people</strong>. Ask yourself: "What tasks in my business follow a predictable pattern every single time?" Those are your automation candidates. Start there.</p>
+
+    <h2>3. The technology is genuinely good now — the implementation is still hard</h2>
+    <p>A lot of business owners tried ChatGPT when it launched, got mediocre results, and concluded that AI wasn't ready for business use. That conclusion was probably right at the time — but the technology has improved dramatically, and the bigger issue was never the technology anyway.</p>
+    <p>The hard part of implementing AI in a business isn't the AI. It's understanding your own workflows well enough to know where AI should plug in, setting up the right integrations, and getting your team to actually use the new system. Those are people and process problems, not technology problems.</p>
+    <p>A well-implemented AI automation — one that's properly integrated into your tools, tested against real workloads, and trained with your business context — performs dramatically better than someone just pasting things in and out of a chatbot window. The difference isn't the underlying model; it's the implementation.</p>
+
+    <h2>4. Not every process should be automated</h2>
+    <p>This one sounds obvious, but it gets ignored constantly. The excitement around AI leads a lot of businesses to automate things they shouldn't — usually processes that are either too variable, too high-stakes, or too dependent on human relationships to hand off to a machine.</p>
+    <p>A good rule of thumb: AI does well when the task is <strong>high volume, low variability, and low-stakes-per-instance</strong>. Drafting a first-pass response to a routine inquiry — great. Automatically sending legal communications without human review — not great.</p>
+    <p>The other category to watch out for is automating a broken process. If your sales follow-up workflow is chaotic because there's no clear system, automating it will just produce chaos faster. Fix the process first, then automate it.</p>
+
+    <div class="callout">
+      <p>Ask yourself: "Would I be comfortable if this automation made a mistake on this task?" If the answer is no, build in a human review step — or don't automate it yet.</p>
+    </div>
+
+    <h2>5. Cheap or free tools are fine to start — but they have real limits</h2>
+    <p>ChatGPT, Claude.ai, Copilot — these free or low-cost tools are excellent for experimenting. If you've never used AI in your business, start here. Copy-paste a few things, see what comes back, get a feel for what these systems can and can't do.</p>
+    <p>But there's a ceiling. These consumer tools have no memory of your business, no integration with your actual systems, no consistency across team members, and no way to enforce the guardrails you need. They're a test drive — not a business solution.</p>
+    <p>When you're ready to get real value from AI, you need something custom: a workflow that's integrated into your tools, trained on your specific business context, and configured so any team member can use it without needing to know anything about AI. That requires either significant time investment to build yourself, or someone who knows what they're doing to build it for you.</p>
+    <p>The good news: custom solutions built on today's AI platforms don't cost nearly as much as people assume. Most of the Quick Win automations we build for clients come in under $3,000 — and they typically pay for themselves in saved time within 60 days.</p>
+
+    <hr class="post-divider" />
+
+    <h2>The honest bottom line</h2>
+    <p>AI is real, it's useful, and it's not going away. But it's also not magic, and the businesses getting the most value from it right now are the ones who approached it practically: started small, picked a specific problem, built something that actually works, and expanded from there.</p>
+    <p>If you're in the Guelph area and want an honest, no-pressure conversation about where AI might actually fit in your business, that's exactly what our free consultation is for. No pitch, no jargon — just a straightforward look at your specific situation.</p>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h4>Want help finding your first AI opportunity?</h4>
+      <p>Book a free 30-minute call. We'll look at your business and tell you honestly whether AI makes sense right now.</p>
+      <a href="contact.html" class="sidebar-cta">Book a Free Call →</a>
+    </div>
+    <div class="sidebar-box">
+      <h4>Related reading</h4>
+      <div class="related-list">
+        <a href="post-5-three-questions.html" class="related-item">
+          <span>Getting Started</span>
+          <p>The 3 questions to ask before automating anything in your business</p>
+        </a>
+        <a href="post-4-calculate-roi.html" class="related-item">
+          <span>ROI</span>
+          <p>How to calculate whether an AI project is worth it before you commit</p>
+        </a>
+        <a href="post-7-five-automations.html" class="related-item">
+          <span>Productivity</span>
+          <p>5 things you could automate in your business this week</p>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="post-footer">
+  <div class="post-footer-inner">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+    <a href="contact.html" class="cta-inline">Book a Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div><div class="footer-brand"</span> Consulting/span></div><p style="margin-top:6px;">Guelph, Ontario · Serving SW Ontario</p></div>
+  <nav><a href="services.html">Services</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
+  <p>© 2026 Waypoint AI. All rights reserved.</p>
+</footer>
+</body>
+</html>

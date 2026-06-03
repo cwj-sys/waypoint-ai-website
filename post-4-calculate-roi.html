@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Calculate Whether an AI Project Is Worth It — Waypoint AI</title>
+  <meta name="description" content="A simple framework for estimating the time and cost savings of any automation, so you can make an informed decision rather than hoping it pays off." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0f2240; --teal: #0e8f7a; --teal-light: #12b09a; --offwhite: #f8f9fb; --gray: #64748b; --light-gray: #e8ecf0; --white: #ffffff; --text: #1e293b; --radius: 12px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--light-gray); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+    .nav-logo span { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.92rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: white !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; }
+    .post-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6b 100%); color: white; padding: 72px 5% 64px; }
+    .post-hero .tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4dd9c8; margin-bottom: 16px; display: inline-block; }
+    .post-hero h1 { font-size: clamp(1.7rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .post-meta { font-size: 0.88rem; color: rgba(255,255,255,0.55); }
+    .post-layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; padding: 64px 5%; max-width: 1200px; margin: 0 auto; align-items: start; }
+    .post-body p { font-size: 1rem; color: var(--gray); line-height: 1.85; margin-bottom: 22px; }
+    .post-body h2 { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin: 40px 0 16px; }
+    .post-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin: 28px 0 12px; }
+    .post-body ul, .post-body ol { padding-left: 24px; margin-bottom: 22px; }
+    .post-body li { font-size: 1rem; color: var(--gray); line-height: 1.75; margin-bottom: 8px; }
+    .post-body strong { color: var(--text); font-weight: 600; }
+    .post-body a { color: var(--teal); text-decoration: underline; }
+    .callout { background: rgba(14,143,122,0.08); border-left: 4px solid var(--teal); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .callout p { margin: 0; font-size: 0.97rem; color: var(--text); font-weight: 500; }
+    .calc-box { background: var(--navy); color: white; border-radius: var(--radius); padding: 32px; margin: 32px 0; }
+    .calc-box h3 { color: #4dd9c8; font-size: 1rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; }
+    .calc-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.92rem; }
+    .calc-row:last-child { border-bottom: none; font-weight: 700; color: #4dd9c8; font-size: 1rem; }
+    .calc-row span:first-child { color: rgba(255,255,255,0.7); }
+    .calc-row span:last-child { font-weight: 600; }
+    .post-divider { border: none; border-top: 1px solid var(--light-gray); margin: 40px 0; }
+    .sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-box { background: var(--offwhite); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 24px; }
+    .sidebar-box h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .sidebar-box p { font-size: 0.85rem; color: var(--gray); line-height: 1.65; margin-bottom: 16px; }
+    .sidebar-cta { display: block; background: var(--teal); color: white; text-align: center; padding: 11px 20px; border-radius: 8px; font-weight: 600; font-size: 0.88rem; text-decoration: none; }
+    .related-list { display: flex; flex-direction: column; gap: 12px; }
+    .related-item { text-decoration: none; display: block; }
+    .related-item span { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); display: block; margin-bottom: 2px; }
+    .related-item p { font-size: 0.85rem; color: var(--navy); font-weight: 600; line-height: 1.4; margin: 0; }
+    .related-item:hover p { color: var(--teal); }
+    .post-footer { background: var(--offwhite); border-top: 1px solid var(--light-gray); padding: 48px 5%; }
+    .post-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .back-link { text-decoration: none; color: var(--teal); font-weight: 600; font-size: 0.9rem; }
+    .cta-inline { background: var(--navy); color: white; padding: 14px 28px; border-radius: 9px; font-weight: 700; font-size: 0.92rem; text-decoration: none; }
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    footer .footer-brand { font-size: 1rem; font-weight: 700; color: white; }
+    footer .footer-brand span { color: #4dd9c8; }
+    footer p { font-size: 0.83rem; }
+    footer nav { display: flex; gap: 24px; }
+    footer nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.83rem; }
+    footer nav a:hover { color: white; }
+    @media (max-width: 900px) { .post-layout { grid-template-columns: 1fr; } .sidebar { position: static; } footer { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.svg" alt="" aria-hidden="true" style="width:36px;height:36px;border-radius:8px;display:block;"/>
+    <span>Waypoint AI</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<div class="post-hero">
+  <span class="tag">ROI</span>
+  <h1>How to calculate whether an AI project is worth it before you commit</h1>
+  <div class="post-meta">April 2026 · 4 min read · By Waypoint AI</div>
+</div>
+
+<div class="post-layout">
+  <article class="post-body">
+    <p>One of the most common questions we hear from business owners is some version of: "How do I know if this is actually going to pay off?" It's a fair question, and too many consultants dodge it with vague talk about "transformation" and "competitive advantage."</p>
+    <p>Here's a straightforward framework for evaluating almost any AI automation before you spend a dollar on it. It takes about 20 minutes, and it'll give you a reasonably confident answer.</p>
+
+    <h2>Step 1: Quantify the time cost of the current process</h2>
+    <p>Pick the specific task or workflow you're thinking about automating. Then answer three questions:</p>
+    <ul>
+      <li><strong>How long does it take each time?</strong> (in minutes)</li>
+      <li><strong>How many times per week does it happen?</strong></li>
+      <li><strong>Who does it?</strong> (their approximate hourly cost to your business)</li>
+    </ul>
+    <p>Multiply those out to get your weekly time cost. Then multiply by 50 to get an annual figure. This is your <strong>current cost baseline</strong>.</p>
+    <p>Example: Your admin spends 45 minutes per day processing incoming invoices. That's 225 minutes per week, or about 3.75 hours. At $25/hour fully loaded, that's roughly $94/week, or about $4,700/year just on invoice processing.</p>
+
+    <h2>Step 2: Estimate what AI could realistically reduce that to</h2>
+    <p>Be conservative. Most automation doesn't eliminate a task entirely — it reduces the human time involved. A realistic range for well-executed automations:</p>
+    <ul>
+      <li><strong>Repetitive, structured tasks</strong> (data entry, document formatting, templated responses): 70–90% reduction in human time</li>
+      <li><strong>Semi-structured tasks</strong> (drafting customer communications, summarizing documents): 50–70% reduction</li>
+      <li><strong>Complex judgment tasks</strong> (negotiations, relationship management, novel problem-solving): 10–30% reduction — AI assists but doesn't replace</li>
+    </ul>
+    <p>Apply the appropriate reduction to your baseline. Using the invoice example at a 75% reduction: new human time is about 1 hour/week, saving roughly $3,500/year.</p>
+
+    <div class="calc-box">
+      <h3>Example ROI calculation — Invoice processing</h3>
+      <div class="calc-row"><span>Weekly time before automation</span><span>3.75 hrs</span></div>
+      <div class="calc-row"><span>Weekly time after (75% reduction)</span><span>~1 hr</span></div>
+      <div class="calc-row"><span>Weekly hours saved</span><span>2.75 hrs</span></div>
+      <div class="calc-row"><span>Hourly cost (fully loaded)</span><span>$25/hr</span></div>
+      <div class="calc-row"><span>Annual savings</span><span>~$3,575</span></div>
+      <div class="calc-row"><span>Project cost (estimate)</span><span>$2,000</span></div>
+      <div class="calc-row"><span>Payback period</span><span>~7 months</span></div>
+    </div>
+
+    <h2>Step 3: Identify the hidden costs people forget to include</h2>
+    <p>Time savings are the most visible number, but there are other dimensions worth factoring in:</p>
+    <h3>Error cost</h3>
+    <p>If the current manual process produces errors that cost you money — wrong amounts on invoices, missed follow-ups, inconsistent proposals — the cost of those errors should be added to your baseline. Automation typically reduces error rates significantly on structured tasks.</p>
+    <h3>Speed-to-revenue impact</h3>
+    <p>For sales-facing tasks, the speed of your response matters. If automating your quote process means quotes go out in 2 hours instead of 2 days, that has revenue implications beyond just staff time. Try to estimate what percentage of deals you lose to slow response, and what those deals are worth annually.</p>
+    <h3>Capacity freed for higher-value work</h3>
+    <p>The hours you save aren't just cost savings — they're capacity that can be redirected. If your most skilled employee is spending 30% of their time on administrative tasks that AI can handle, what's the value of redirecting that 30% to work only they can do?</p>
+
+    <h2>Step 4: Get an honest project cost estimate</h2>
+    <p>With your savings number in hand, you can evaluate whether a project is worth commissioning. General ranges for well-scoped automations:</p>
+    <ul>
+      <li>Simple single-workflow automation: $1,500–$3,000</li>
+      <li>Multi-step workflow with integrations: $5,000–$10,000</li>
+      <li>Complex multi-workflow system: $10,000–$20,000</li>
+    </ul>
+    <p>A project is generally worth pursuing if the payback period is 12 months or less. Under 6 months is a clear yes. Over 18 months is worth questioning whether there's a more impactful place to start.</p>
+
+    <div class="callout">
+      <p>If you can't identify at least $3,000–$5,000/year in clear, quantifiable savings from a proposed automation, it's worth pausing to find a better starting point. The best first projects are the ones that pay back fast and build organizational confidence.</p>
+    </div>
+
+    <h2>A note on "soft" benefits</h2>
+    <p>Consistency, quality improvements, employee satisfaction, reduced stress — these are real, but they're hard to put a number on. Include them in your thinking, but build your financial case on the hard numbers. If the hard numbers justify the project, the soft benefits are a bonus. If the hard numbers don't justify it, don't rely on soft benefits to make the case.</p>
+
+    <hr class="post-divider" />
+    <p>If you want to run this calculation on a specific process in your business, book a free consultation. We do this analysis for every client before we scope a project — there's no commitment required, and you'll leave with a clear picture of what's actually worth automating.</p>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h4>Want us to run this calculation for you?</h4>
+      <p>On your free consultation call, we'll go through exactly this framework with your specific workflows. No charge, no commitment.</p>
+      <a href="contact.html" class="sidebar-cta">Book a Free Call →</a>
+    </div>
+    <div class="sidebar-box">
+      <h4>Related reading</h4>
+      <div class="related-list">
+        <a href="post-5-three-questions.html" class="related-item">
+          <span>Getting Started</span>
+          <p>The 3 questions to ask before automating anything</p>
+        </a>
+        <a href="post-7-five-automations.html" class="related-item">
+          <span>Productivity</span>
+          <p>5 things you could automate in your business this week</p>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="post-footer">
+  <div class="post-footer-inner">
+    <a href="blog.html" class="back-link">← Back to Blog</a>
+    <a href="contact.html" class="cta-inline">Book a Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div><div class="footer-brand"</span> Consulting/span></div><p style="margin-top:6px;">Guelph, Ontario · Serving SW Ontario</p></div>
+  <nav><a href="services.html">Services</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
+  <p>© 2026 Waypoint AI. All rights reserved.</p>
+</footer>
+</body>
+</html>

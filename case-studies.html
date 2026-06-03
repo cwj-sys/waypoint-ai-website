@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Studies — Waypoint AI | Real Results for Real Businesses</title>
+  <meta name="description" content="See how small and medium businesses in Guelph and SW Ontario are using AI to save time, reduce costs, and grow faster." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f2240; --teal: #0e8f7a; --teal-light: #12b09a; --amber: #f59e0b;
+      --offwhite: #f8f9fb; --gray: #64748b; --light-gray: #e8ecf0; --white: #ffffff;
+      --text: #1e293b; --radius: 12px; --shadow: 0 4px 24px rgba(15,34,64,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--light-gray); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+    .nav-logo span { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-cta { background: var(--teal); color: white !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+
+    .page-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6b 100%); color: white; padding: 72px 5% 64px; }
+    .page-hero .label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4dd9c8; margin-bottom: 12px; }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+    .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.75); max-width: 560px; line-height: 1.7; }
+
+    section { padding: 72px 5%; }
+    .section-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+
+    /* STAT STRIP */
+    .stat-strip { background: var(--offwhite); padding: 48px 5%; border-top: 1px solid var(--light-gray); border-bottom: 1px solid var(--light-gray); }
+    .stats-row { display: flex; justify-content: center; gap: 80px; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat span { display: block; font-size: 2.5rem; font-weight: 800; color: var(--teal); }
+    .stat p { font-size: 0.88rem; color: var(--gray); margin-top: 4px; }
+
+    /* CASE STUDY CARDS */
+    .cs-grid { display: flex; flex-direction: column; gap: 48px; }
+    .cs-card { background: var(--offwhite); border: 1px solid var(--light-gray); border-radius: var(--radius); overflow: hidden; }
+    .cs-header { background: var(--navy); color: white; padding: 32px 40px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+    .cs-header-left .cs-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4dd9c8; margin-bottom: 8px; }
+    .cs-header-left h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 4px; }
+    .cs-header-left p { font-size: 0.88rem; color: rgba(255,255,255,0.6); }
+    .cs-results { display: flex; gap: 32px; flex-wrap: wrap; }
+    .cs-result { text-align: right; }
+    .cs-result span { display: block; font-size: 1.8rem; font-weight: 800; color: #4dd9c8; }
+    .cs-result p { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+    .cs-body { padding: 40px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+    .cs-col h4 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+    .cs-col p, .cs-col li { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+    .cs-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .cs-col li::before { content: '→ '; color: var(--teal); font-weight: 700; }
+    .cs-quote { border-top: 1px solid var(--light-gray); padding: 28px 40px; background: white; }
+    .cs-quote blockquote { font-size: 0.97rem; font-style: italic; color: var(--text); line-height: 1.7; margin-bottom: 12px; }
+    .cs-quote cite { font-size: 0.82rem; color: var(--gray); font-style: normal; font-weight: 600; }
+
+    /* CTA */
+    .cta-strip { background: linear-gradient(135deg, var(--teal), #097a69); color: white; text-align: center; padding: 72px 5%; }
+    .cta-strip h2 { color: white; margin-bottom: 12px; }
+    .cta-strip p { color: rgba(255,255,255,0.82); max-width: 480px; margin: 0 auto 32px; font-size: 1rem; line-height: 1.7; }
+    .btn-white { background: white; color: var(--teal); padding: 14px 36px; border-radius: 9px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-block; transition: transform 0.15s; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .btn-white:hover { transform: translateY(-2px); }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 48px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    footer .footer-brand { font-size: 1rem; font-weight: 700; color: white; }
+    footer .footer-brand span { color: #4dd9c8; }
+    footer p { font-size: 0.83rem; }
+    footer nav { display: flex; gap: 24px; }
+    footer nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.83rem; transition: color 0.2s; }
+    footer nav a:hover { color: white; }
+
+    @media (max-width: 900px) {
+      .cs-body { grid-template-columns: 1fr; }
+      .cs-header { flex-direction: column; }
+      .cs-result { text-align: left; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.svg" alt="" aria-hidden="true" style="width:36px;height:36px;border-radius:8px;display:block;"/>
+    <span>Waypoint AI</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="case-studies.html" class="active">Case Studies</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="label">Case Studies</div>
+  <h1>Real results for<br/>real businesses.</h1>
+  <p>Every engagement below started with a business owner who didn't know where to start with AI. Here's where they ended up.</p>
+</div>
+
+<div class="stat-strip">
+  <div class="stats-row">
+    <div class="stat"><span>6 hrs</span><p>Average weekly time saved per client</p></div>
+    <div class="stat"><span>3 wks</span><p>Average time from start to first results</p></div>
+    <div class="stat"><span>100%</span><p>Of clients would recommend Waypoint AI</p></div>
+  </div>
+</div>
+
+<section>
+  <div class="cs-grid">
+
+    <!-- CASE STUDY 1 -->
+    <div class="cs-card">
+      <div class="cs-header">
+        <div class="cs-header-left">
+          <div class="cs-tag">Property Management · Quick Win Automation</div>
+          <h3>Guelph Property Management Firm</h3>
+          <p>8-person team managing 120+ residential and commercial units</p>
+        </div>
+        <div class="cs-results">
+          <div class="cs-result"><span>6 hrs</span><p>Saved per week</p></div>
+          <div class="cs-result"><span>3 wks</span><p>To full launch</p></div>
+          <div class="cs-result"><span>$2,400</span><p>Project cost</p></div>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-col">
+          <h4>The Problem</h4>
+          <p>The team was drowning in tenant inquiries — maintenance requests, lease questions, availability checks. Each one required a staff member to read, research, and write a personal response. At peak, this consumed 6–8 hours a week across the team, and responses were sometimes delayed by 24–48 hours.</p>
+        </div>
+        <div class="cs-col">
+          <h4>What We Built</h4>
+          <ul>
+            <li>AI triage system that categorizes each inquiry by type</li>
+            <li>Draft responses generated in the company's tone for common request types</li>
+            <li>Staff review-and-send workflow — one click for routine inquiries</li>
+            <li>Escalation flagging for complex or urgent issues</li>
+          </ul>
+        </div>
+        <div class="cs-col">
+          <h4>The Result</h4>
+          <p>Routine inquiries now take under 2 minutes to handle instead of 15–20. Response times dropped from 24–48 hours to under 4 hours on average. The team recovered 6 hours of productive time weekly — the equivalent of almost a full day — without hiring anyone new.</p>
+        </div>
+      </div>
+      <div class="cs-quote">
+        <blockquote>"I was skeptical at first — I'd heard so much AI hype and nothing ever lived up to it. But within three weeks we had a system that actually works. The ROI was obvious by the end of month one."</blockquote>
+        <cite>— Property Manager, Guelph</cite>
+      </div>
+    </div>
+
+    <!-- CASE STUDY 2 -->
+    <div class="cs-card">
+      <div class="cs-header">
+        <div class="cs-header-left">
+          <div class="cs-tag">Trades & Construction · Quick Win Automation</div>
+          <h3>Kitchener Electrical Contractor</h3>
+          <p>Owner-operated business with 4 electricians and an office admin</p>
+        </div>
+        <div class="cs-results">
+          <div class="cs-result"><span>75%</span><p>Faster estimating</p></div>
+          <div class="cs-result"><span>2 wks</span><p>To full launch</p></div>
+          <div class="cs-result"><span>$1,800</span><p>Project cost</p></div>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-col">
+          <h4>The Problem</h4>
+          <p>Producing a quote for a new job was taking half a day. The owner had to visit the site, take notes, look up materials pricing, write up a scope of work, calculate labour, format the document, and email it to the client. Estimates were inconsistent and sometimes took 2–3 days to deliver — long enough for clients to go elsewhere.</p>
+        </div>
+        <div class="cs-col">
+          <h4>What We Built</h4>
+          <ul>
+            <li>Job intake form the owner fills out on-site from their phone</li>
+            <li>AI generates a complete, formatted estimate from the form data</li>
+            <li>Standard pricing lookup integrated for common materials and labour rates</li>
+            <li>Professional PDF estimate ready to email in minutes</li>
+          </ul>
+        </div>
+        <div class="cs-col">
+          <h4>The Result</h4>
+          <p>What used to take half a day now takes 45 minutes, including review and sending. The owner can turn around quotes the same day as site visits — sometimes within hours. Client feedback on quote quality has improved, and the win rate on submitted estimates has gone up noticeably.</p>
+        </div>
+      </div>
+      <div class="cs-quote">
+        <blockquote>"Our estimating process used to take half a day. Now it takes 45 minutes. I didn't think that was possible without hiring another person. I was wrong."</blockquote>
+        <cite>— Owner, Kitchener electrical contractor</cite>
+      </div>
+    </div>
+
+    <!-- CASE STUDY 3 -->
+    <div class="cs-card">
+      <div class="cs-header">
+        <div class="cs-header-left">
+          <div class="cs-tag">Professional Services · AI Readiness Audit + Quick Win</div>
+          <h3>Cambridge Accounting Practice</h3>
+          <p>Solo practitioner with 2 staff, serving 180+ small business clients</p>
+        </div>
+        <div class="cs-results">
+          <div class="cs-result"><span>4 hrs</span><p>Saved per week</p></div>
+          <div class="cs-result"><span>4 wks</span><p>Audit + build</p></div>
+          <div class="cs-result"><span>$2,000</span><p>Total cost</p></div>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-col">
+          <h4>The Problem</h4>
+          <p>Tax season meant the team was drowning in client communication — answering the same questions dozens of times, sending status updates manually, and writing personalized follow-up emails for document requests. The principal wanted to grow the practice but couldn't see how without hiring another person.</p>
+        </div>
+        <div class="cs-col">
+          <h4>What We Built</h4>
+          <ul>
+            <li>AI Readiness Audit first — surfaced 7 automation opportunities</li>
+            <li>Prioritized the highest-impact item: client communication templates</li>
+            <li>AI drafts status updates, document request emails, and FAQ responses</li>
+            <li>Branded in the firm's voice — clients can't tell it's AI-assisted</li>
+          </ul>
+        </div>
+        <div class="cs-col">
+          <h4>The Result</h4>
+          <p>Client communication time dropped by 4 hours per week — almost a full day per month returned to billable work. The principal felt comfortable enough with the results to book a Custom Integration for their onboarding workflow next quarter. No new hire required.</p>
+        </div>
+      </div>
+      <div class="cs-quote">
+        <blockquote>"What I appreciated most was that they didn't try to oversell me. We did the audit, identified two things to automate, and they built exactly that. Simple, fast, and it works."</blockquote>
+        <cite>— Principal, Cambridge accounting practice</cite>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Your business could be next.</h2>
+  <p>Book a free 30-minute call and we'll find your first quick win together.</p>
+  <a href="contact.html" class="btn-white">Book a Free Consultation →</a>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-brand"</span> Consulting/span></div>
+    <p style="margin-top:6px;">Guelph, Ontario · Serving SW Ontario</p>
+  </div>
+  <nav>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <p>© 2026 Waypoint AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
