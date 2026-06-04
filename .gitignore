@@ -1,0 +1,4 @@
+# macOS / editor / sync artifacts
+.DS_Store
+.fuse_hidden*
+*.swp
