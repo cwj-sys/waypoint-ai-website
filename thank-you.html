@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18074516921"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18074516921');
+  </script>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're Booked — Waypoint AI</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f2240;
+      --teal: #0e8f7a;
+      --teal-light: #13b89a;
+      --gray: #64748b;
+      --light: #f8fafc;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 56px 48px;
+      max-width: 540px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(15,34,64,0.08);
+    }
+    .checkmark {
+      width: 72px;
+      height: 72px;
+      background: rgba(14,143,122,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+    }
+    .checkmark svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--teal);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    p {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 28px 0;
+    }
+    .what-to-expect {
+      text-align: left;
+    }
+    .what-to-expect h2 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+    .step {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      background: var(--teal);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--navy);
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 32px;
+      background: var(--teal);
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: var(--teal-light); }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 40px;
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--navy);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-mark svg { width: 18px; height: 18px; fill: var(--teal); }
+    .logo-text { font-weight: 800; font-size: 1rem; color: var(--navy); }
+    @media (max-width: 540px) {
+      .card { padding: 40px 28px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="/" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <span class="logo-text">Waypoint AI</span>
+  </a>
+
+  <div class="card">
+    <div class="checkmark">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <h1>You're booked!</h1>
+    <p>Your 60-minute discovery call is confirmed. Check your email for a calendar invite with the video call link.</p>
+
+    <hr class="divider" />
+
+    <div class="what-to-expect">
+      <h2>What to expect</h2>
+      <div class="step">
+        <div class="step-num">1</div>
+        <p><strong>Before the call</strong> — jot down 2–3 areas where your team loses the most time each week.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <p><strong>On the call</strong> — we'll walk through your operations and identify where AI can have the biggest impact.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <p><strong>After the call</strong> — you'll receive a clear, written summary with specific recommendations and next steps.</p>
+      </div>
+    </div>
+
+    <a href="/" class="btn">Back to Waypoint AI</a>
+  </div>
+</body>
+</html>
