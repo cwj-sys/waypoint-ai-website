@@ -8,6 +8,14 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'AW-18074516921');
+
+    // Google Ads conversion: discovery call booked.
+    // TODO(Chris): replace CONVERSION_LABEL with the label from
+    // Google Ads → Goals → Conversions → "Book discovery call" → Tag setup.
+    // The event will not register until the label is filled in.
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18074516921/CONVERSION_LABEL'
+    });
   </script>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
