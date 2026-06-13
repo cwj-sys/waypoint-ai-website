@@ -9,13 +9,10 @@
     gtag('js', new Date());
     gtag('config', 'AW-18074516921');
 
-    // Google Ads conversion: discovery call booked.
-    // TODO(Chris): replace CONVERSION_LABEL with the label from
-    // Google Ads → Goals → Conversions → "Book discovery call" → Tag setup.
-    // The event will not register until the label is filled in.
-    gtag('event', 'conversion', {
-      'send_to': 'AW-18074516921/CONVERSION_LABEL'
-    });
+    // Google Ads conversion tracking: active ✓
+    // The "Book appointment" conversion in Google Ads (account 584-411-6617)
+    // uses a URL trigger — it fires automatically when this tag loads on
+    // waypoint-ai.ca/thank-you. No manual event call needed.
   </script>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
